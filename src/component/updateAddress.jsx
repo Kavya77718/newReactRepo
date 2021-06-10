@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import AddressService from '../services/addressService';
-class AddAddress extends Component {
+
+class UpdateAddress extends Component {
+
     constructor(props){
         super(props)
         this.state = {
-            id:'',
+            id:this.props.match.params.id,
             flatNo: '',
             buildingName: '',
             area: '',
             location:'',
             pincode: '',
-            state: ''
+            state: '' 
+
         }
         this.changeFlatNoHandler=this.changeFlatNoHandler.bind(this);
         this.changeBuildingNameHandler=this.changeBuildingNameHandler.bind(this);
@@ -18,68 +21,79 @@ class AddAddress extends Component {
         this.changeLocationHandler=this.changeLocationHandler.bind(this);
         this.changePincodeHandler=this.changePincodeHandler.bind(this);
         this.changeStateHandler=this.changeStateHandler.bind(this);
-        this.saveAddress=this.saveAddress.bind(this);
+        this.updateAddress=this.updateAddress.bind(this);
         this.changeIdHandler=this.changeIdHandler.bind(this);
+      
     }
 
-    saveAddress = (e) => {
-        e.preventDefault();
-        let address={id:this.state.id,flatNo: this.state.flatNo, buildingName: this.state.buildingName, area: this.state.area,
-                     location: this.state.location, pincode: this.state.pincode, state: this.state.state  };
-        console.log('address => '+ JSON.stringify(address));
+    componentDidMount(){
+            AddressService.getAddressById(this.state.id).then((res) =>{
+                let address=res.data;
+                this.setState({flatNo: this.state.flatNo, buildingName: this.state.buildingName, area: this.state.area,
+                    location: this.state.location, pincode: this.state.pincode, state: this.state.state
+                });
+            });
+        }
 
-        AddressService.createAddress(address).then(res => {
-            this.props.history.push(`/address`);
-        });
+        updateAddress = (e) => {
+            e.preventDefault();
+            let address={id:this.state.id,flatNo: this.state.flatNo, buildingName: this.state.buildingName, area: this.state.area,
+                location: this.state.location, pincode: this.state.pincode, state: this.state.state  };
+            console.log('address => '+ JSON.stringify(address));
+    
+            AddressService.updateAddress(this.state.id,address).then(res => {
+                this.props.history.push(`/address`);
+            });
+    
+        }
 
-    }
-
-    changeIdHandler=(event) =>{
-        this.setState({id: event.target.value})
-    }
-
-    changeFlatNoHandler=(event) =>{
-        this.setState({flatNo: event.target.value})
-    }
-
-    changeBuildingNameHandler=(event) =>{
-        this.setState({buildingName: event.target.value})
-    }
-
-    changeAreaHandler=(event) =>{
-        this.setState({area: event.target.value})
-    }
-
-    changeLocationHandler=(event) =>{
-        this.setState({location: event.target.value})
-    }
-
-    changeStateHandler=(event) =>{
-        this.setState({state: event.target.value})
-    }
-
-    changePincodeHandler=(event) =>{
-        this.setState({pincode: event.target.value})
-    }
-
-    cancel(){
-        this.props.history.push('/address');
-    }
-
+   
+        changeIdHandler=(event) =>{
+            this.setState({id: event.target.value})
+        }
+    
+        changeFlatNoHandler=(event) =>{
+            this.setState({flatNo: event.target.value})
+        }
+    
+        changeBuildingNameHandler=(event) =>{
+            this.setState({buildingName: event.target.value})
+        }
+    
+        changeAreaHandler=(event) =>{
+            this.setState({area: event.target.value})
+        }
+    
+        changeLocationHandler=(event) =>{
+            this.setState({location: event.target.value})
+        }
+    
+        changeStateHandler=(event) =>{
+            this.setState({state: event.target.value})
+        }
+    
+        changePincodeHandler=(event) =>{
+            this.setState({pincode: event.target.value})
+        }
+    
+        cancel(){
+            this.props.history.push('/address');
+        }
 
 
-    render() { 
+    render(){
         return (  
             <div>
                 <div className="container">
                     <div className="row">
-                        <div className="caed col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Add Customer</h3>
+                        <div className="card col-md-6 offset-md-3 offset-md-3">
+                            <h3 className="text-center">Update Address </h3>
                             <div className="card-body">
                                 <form>
+                                
                                 <div className="form-group">
                                         <label>AddressId:</label>
-                                        <input placeholder="AddressId" name="id" className="form-control" value={this.state.id} onChange={this.changeIdHandler}/>
+                                        <input placeholder="AddressId" name="AddressId" className="form-control" value={this.state.id} onChange={this.changeIdHandler}/>
                                 </div>
                                     <div className="form-group">
                                         <label>flatNo:</label>
@@ -106,7 +120,7 @@ class AddAddress extends Component {
                                         <input placeholder="Pincode" name="pincode" className="form-control" value={this.state.pincode} onChange={this.changePincodeHandler}/>
                                     </div>
                 
-                                    <button className="btn btn-success" onClick={this.saveAddress}> Save</button>
+                                    <button className="btn btn-success" onClick={this.updateAddress}> Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
 
                                 </form>
@@ -121,4 +135,4 @@ class AddAddress extends Component {
     }
 }
  
-export default AddAddress;
+export default UpdateAddress;

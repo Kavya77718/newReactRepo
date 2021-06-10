@@ -25,5 +25,10 @@ class CustomerService{
 
       }
 
+      async getCustomerByName(name){
+        return await axios.get(CUSTOMER_API_BASE_URL + '/name/' +name);
+      }
+
+
 }
 export default new CustomerService()

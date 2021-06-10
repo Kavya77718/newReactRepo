@@ -5,7 +5,8 @@ class ListCustomer extends Component {
         super(props)
 
       this.state = {
-                customers: []
+                customers: [],
+                search: ''
         }
         this.addCustomer = this.addCustomer.bind(this);
         this.deleteCustomer = this.deleteCustomer.bind(this);
@@ -37,9 +38,42 @@ class ListCustomer extends Component {
         });
     }
 
+    getCustomerByName = () =>{
+        let customers=[];
+        CustomerService.getCustomerByName(this.state.search).then((res)=>{
+            customers= res.data;
+            this.setState({customers});
+            console.log(this.state.customers);
+        });
+    }
+
+    onChange = (event) => {
+        console.log(event.target.value);
+        this.setState({ search: event.target.value });
+      };
+
      render() { 
+        
         return (
+    
             <div>
+                   <form className="form-inline my-2 my-lg-0">
+              <input
+                className="form-control ml-auto"
+                type="search"
+                name="name"
+                placeholder="Search by name"
+                aria-label="Search"
+                onChange={this.onChange}
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="button"
+                onClick={this.getCustomerByName}
+              >
+                Search
+              </button>
+            </form>
                  <h2 className="text-center">Customers List</h2>
                  <div className = "row">
                  <div className = "row">
