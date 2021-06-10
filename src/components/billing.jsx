@@ -6,7 +6,8 @@ class Billing extends Component {
         super(props)
         
         this.state = {  
-            bills:[]
+            bills:[],
+            search:''
         }
         this.updateBill= this.updateBill.bind(this);
         this.addBill=this.addBill.bind(this);
@@ -36,14 +37,47 @@ class Billing extends Component {
         this.setState({bills: res.data});
         });
     }
+
+    getBillById = () =>{
+        let bills=[];
+        BillingService.getBillById(this.state.search).then((res)=>{
+            bills= res.data;
+            this.setState({bills});
+            console.log(this.state.bills);
+        });
+    }
+
+    onChange = (event) => {
+        console.log(event.target.value);
+        this.setState({ search: event.target.value });
+      };
   
     render() { 
         return ( 
             <div>
+                <form className="form-inline my-2 my-lg-0">
+              <input
+                className="form-control ml-auto"
+                type="search"
+                name="id"
+                placeholder="Search by id"
+                aria-label="Search"
+                onChange={this.onChange}
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="button"
+                onClick={this.getBillById}
+              >
+      
+ Search
+              </button>
+            </form>
              <h2 className="text-center">Bill Lists</h2>
             <div className="row">
                 <button className="btn btn-info" onClick={this.addBill}>Add Billing</button>
              </div>
+
                 <div className="row">
 
                     <table className="table table-striped table-bordered"> 

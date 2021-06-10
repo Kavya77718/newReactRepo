@@ -8,24 +8,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import { createStore } from "redux";
 import allReducers from "./reducer/index";
 import { Provider } from "react-redux";
-
-// Create store
-const store = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-// Display store in console
-//store.subscribe(() => console.log(store.getState()));
-
-// Use Provider to hook store to app
+import store from './redux/store';
+import './CustomCSS/logincss.css';
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
