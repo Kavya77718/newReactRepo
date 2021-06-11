@@ -1,5 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import Vegetable from './components/Vegetable';
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import FooterComponent from './components/FooterComponent';
+import HeaderComponent from './components/HeaderComponent';
+import Createvegetable from './components/Createvegetable';
+import UpdateVegetable from './components/UpdateVegetable';
+import ViewVegetable from './components/ViewVegetable';
+import Cart from './components/Cart';
+import VegetablePage from './components/VegetablePage';
+import VegetableHome from './components/VegetableHome';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import ListCustomer from './component/listCustomer';
 import AddCustomer from './component/addCustomer';
@@ -17,8 +27,10 @@ import AdminHome from './component/AdminPage/adminHome';
 
 function App() {
   return (
+  
     <Router>
-              
+    <HeaderComponent/>
+              <div className="container">
                 <Switch> 
                       <Route path = "/" exact component = {CustomerHomepage}></Route>
                      <div style={{"margin":"20px"}}>                     
@@ -33,9 +45,20 @@ function App() {
                       <Route path="/update-address/:id" component = {UpdateAddress}></Route>
                       <Route path = "/feedback" component = {Feedback}></Route>
                       <Route path = "/add-feedback" component = {AddFeedback}></Route>
+                      <Route path= "/" exact component = {Vegetable}></Route>
+                    <Route path= "/vegetable" exact component = {Vegetable}></Route>
+                    <Route path= "/Create-vegetable" exact component = {Createvegetable}></Route>
+                    <Route path="/update/:vegId" exact component = {UpdateVegetable}></Route>
+                    <Route path="/View-Vegetable/:vegId" exact component = {ViewVegetable}></Route>
+                    <Route path= "/cart/" exact component = {Cart}></Route>
+                    <Route path= "/vegetablepage/" exact component = {VegetablePage}></Route>
+                    <Route path= "/vegetablehome/" exact component = {VegetableHome}></Route>
+                    <Vegetable/>
                       </div>
                 </Switch>
-    
+              </div>
+              <FooterComponent/>
+          
     </Router>
   );
 }
