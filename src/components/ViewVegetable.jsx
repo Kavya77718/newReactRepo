@@ -29,10 +29,6 @@ class ViewVegetable extends Component {
                 <div className ="card-body">
                 <h1>{this.props.match.params.vegId}</h1>
                     <div className ="row">
-                        <label><b>Vegetable vegId: </b></label>
-                        <div>{this.state.vegetable.vegId}</div>
-                    </div>
-                    <div className ="row">
                         <label><b>Vegetable Name:</b> </label>
                         <div>{this.state.vegetable.name}</div>
                     </div>

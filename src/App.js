@@ -8,6 +8,9 @@ import HeaderComponent from './components/HeaderComponent';
 import Createvegetable from './components/Createvegetable';
 import UpdateVegetable from './components/UpdateVegetable';
 import ViewVegetable from './components/ViewVegetable';
+import Cart from './components/Cart';
+import VegetablePage from './components/VegetablePage';
+import VegetableHome from './components/VegetableHome';
 
 function App() {
   return (
@@ -20,7 +23,10 @@ function App() {
                     <Route path= "/vegetable" exact component = {Vegetable}></Route>
                     <Route path= "/Create-vegetable" exact component = {Createvegetable}></Route>
                     <Route path="/update/:vegId" exact component = {UpdateVegetable}></Route>
-                    <Route path="/ViewVegetable/:vegId" exact component = {ViewVegetable}></Route>
+                    <Route path="/View-Vegetable/:vegId" exact component = {ViewVegetable}></Route>
+                    <Route path= "/cart/" exact component = {Cart}></Route>
+                    <Route path= "/vegetablepage/" exact component = {VegetablePage}></Route>
+                    <Route path= "/vegetablehome/" exact component = {VegetableHome}></Route>
                     <Vegetable/>
                 </Switch>
               </div>

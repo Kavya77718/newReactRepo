@@ -21,11 +21,7 @@ class HeaderComponent extends Component {
                      <ul class="navbar-nav mr-auto">
                           <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
                           <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-                     </ul> 
-                     <form class="form-inline my-3 my-lg-3">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button type="button" class="btn btn-sm btn-info">Search</button>
-                     </form>    
+                     </ul>     
                 </div>
                 </nav>   
                 </header>

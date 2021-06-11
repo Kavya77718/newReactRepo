@@ -18,7 +18,10 @@ class VegetableService{
         return await axios.put(VEGETABLE_API_BASE_URL + "/update/" + vegId,vegetable);
       }
       async viewVegetableById(vegId) {
-        return await axios.get(VEGETABLE_API_BASE_URL + "/" + vegId);
+        return await axios.get(VEGETABLE_API_BASE_URL + "/viewvegetablebyid/" + vegId);
+      }
+      async viewVegetableByName(name) {
+        return await axios.get(VEGETABLE_API_BASE_URL + "/name/" + name);
       }
 }
 export default new VegetableService()
