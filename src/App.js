@@ -24,6 +24,22 @@ import ViewAddress from './component/viewAddress';
 import UpdateAddress from './component/updateAddress';
 import AdminHome from './component/AdminPage/adminHome';
 
+import Billing from './components/billing';
+import ViewBilling from './components/viewBilling';
+import CreateBilling from './components/createBill';
+import UpdateBilling from './components/updateBill';
+import Counter from './components/counter';
+import Login from './components/Login';
+import Register from './components/Register';
+//import BillingForm from './components/billingForm';
+import Navbar from './components/Navbar';
+let emailId
+if(localStorage.getItem('emailId')){
+  emailId=localStorage.getItem('emailId')
+  console.log(emailId)
+}
+
+
 
 function App() {
   return (
@@ -53,6 +69,14 @@ function App() {
                     <Route path= "/cart/" exact component = {Cart}></Route>
                     <Route path= "/vegetablepage/" exact component = {VegetablePage}></Route>
                     <Route path= "/vegetablehome/" exact component = {VegetableHome}></Route>
+                    
+            <Route exact path='/login' exact component={Login}/>
+            <Route exact path='/register' exact component={Register}/>
+            <Route path="/counter" exact component={Counter}></Route>
+            <Route path="/" exact component={Billing}></Route>
+            <Route path ="/view-bills/:billingId" exact component ={ViewBilling}></Route>
+            <Route path="/add-bills" exact component = {CreateBilling}></Route>
+            <Route path="/update-bills/:billingId" exact component = {UpdateBilling}></Route>
                     <Vegetable/>
                       </div>
                 </Switch>
