@@ -1,15 +1,14 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Vegetable from "./components/Vegetable";
+import Vegetable from "./component/Vegetable";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import FooterComponent from "./components/FooterComponent";
-import HeaderComponent from "./components/HeaderComponent";
-import Createvegetable from "./components/Createvegetable";
-import UpdateVegetable from "./components/UpdateVegetable";
-import ViewVegetable from "./components/ViewVegetable";
-import Cart from "./components/Cart";
-import VegetablePage from "./components/VegetablePage";
-import VegetableHome from "./components/VegetableHome";
+import FooterComponent from "./component/FooterComponent";
+import Createvegetable from "./component/Createvegetable";
+import UpdateVegetable from "./component/UpdateVegetable";
+import ViewVegetable from "./component/ViewVegetable";
+import Cart from "./component/Cart";
+import VegetablePage from "./component/VegetablePage";
+import VegetableHome from "./component/VegetableHome";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ListCustomer from "./component/listCustomer";
 import AddCustomer from "./component/addCustomer";
@@ -24,24 +23,28 @@ import ViewAddress from "./component/viewAddress";
 import UpdateAddress from "./component/updateAddress";
 import AdminHome from "./component/AdminPage/adminHome";
 
-import Billing from "./components/billing";
-import ViewBilling from "./components/viewBilling";
-import CreateBilling from "./components/createBill";
-import UpdateBilling from "./components/updateBill";
-import Counter from "./components/counter";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Billing from "./component/billing";
+import ViewBilling from "./component/viewBilling";
+import CreateBilling from "./component/createBill";
+import UpdateBilling from "./component/updateBill";
+import Counter from "./component/counter";
+import Login from "./component/Login";
+import Register from "./component/Register";
 //import BillingForm from './components/billingForm';
-import Navbar from "./components/Navbar";
+import Navbar from "./component/Navbar";
 
-import Orderdets from "./components/orderdets";
-import ViewOrder from "./components/viewOrder";
-import CreateOrder from "./components/createOrder";
-import UpdateOrder from "./components/updateOrder";
-import ViewPayment from "./components/viewPayment";
-import CreatePayment from "./components/createPayment";
-import Payments from "./components/payments";
-import UpdatePayment from "./components/updatePayment";
+import Orderdets from "./component/orderdets";
+import ViewOrder from "./component/viewOrder";
+import CreateOrder from "./component/createOrder";
+import UpdateOrder from "./component/updateOrder";
+import ViewPayment from "./component/viewPayment";
+import CreatePayment from "./component/createPayment";
+import Payments from "./component/payments";
+import UpdatePayment from "./component/updatePayment";
+
+import VegetableListing from "./component/vegetableListing";
+import VegetableDetail from "./component/vegetableDetail";
+
 
 let emailId;
 if (localStorage.getItem("emailId")) {
@@ -49,10 +52,12 @@ if (localStorage.getItem("emailId")) {
   console.log(emailId);
 }
 
+
 function App() {
   return (
+
+
     <Router>
-      <HeaderComponent />
       <div className="container">
         <Switch>
           <Route path="/" exact component={CustomerHomepage}></Route>
@@ -74,34 +79,15 @@ function App() {
             <Route path="/update-address/:id" component={UpdateAddress}></Route>
             <Route path="/feedback" component={Feedback}></Route>
             <Route path="/add-feedback" component={AddFeedback}></Route>
-            <Route path="/" exact component={Vegetable}></Route>
+
+            <Route path="/v" exact component={Vegetable}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
-            <Route
-              path="/Create-vegetable"
-              exact
-              component={Createvegetable}
-            ></Route>
-            <Route
-              path="/update/:vegId"
-              exact
-              component={UpdateVegetable}
-            ></Route>
-            <Route
-              path="/View-Vegetable/:vegId"
-              exact
-              component={ViewVegetable}
-            ></Route>
+            <Route path="/Create-vegetable" exact component={Createvegetable}></Route>
+            <Route path="/update/:vegId" exact component={UpdateVegetable}></Route>
+            <Route path="/View-Vegetable/:vegId" exact component={ViewVegetable}></Route>
             <Route path="/cart/" exact component={Cart}></Route>
-            <Route
-              path="/vegetablepage/"
-              exact
-              component={VegetablePage}
-            ></Route>
-            <Route
-              path="/vegetablehome/"
-              exact
-              component={VegetableHome}
-            ></Route>
+            <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
+            <Route path="/vegetablehome/"exact component={VegetableHome}></Route>
 
             <Route exact path="/login" exact component={Login} />
             <Route exact path="/register" exact component={Register} />
@@ -146,6 +132,8 @@ function App() {
               exact
               component={UpdatePayment}
             ></Route>
+            <Route path="/veglisting" exact component={VegetableListing}></Route>
+            <Route path="/vegetable/:vegId" exact component={VegetableDetail}></Route>
           </div>
         </Switch>
       </div>
@@ -155,3 +143,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
