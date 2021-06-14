@@ -1,4 +1,4 @@
-import { actionTypes } from "../Service/userTypes";
+import { actionTypes } from "../services/userTypes";
 import axios from "axios";
 
 export const loginUser = (loginDetails) => async (dispatch) => {

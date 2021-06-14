@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CustomerService from '../services/customerService'
+
 class ListCustomer extends Component {
     constructor(props) {
         super(props)
@@ -57,7 +58,13 @@ class ListCustomer extends Component {
         return (
     
             <div>
-                   <form className="form-inline my-2 my-lg-0">
+                  
+                 <h2 className="text-center">Customers List</h2>
+                 <div className = "row">
+                 <div className = "row">
+                    <button className="btn btn-primary" onClick={this.addCustomer} style={{marginBottom:"10px", marginLeft:"13px"}}> Add Customer</button>
+                 </div>
+                 <form className="form-inline my-2 my-lg-0" style={{"marginLeft":"950px"}}>
               <input
                 className="form-control ml-auto"
                 type="search"
@@ -74,11 +81,7 @@ class ListCustomer extends Component {
                 Search
               </button>
             </form>
-                 <h2 className="text-center">Customers List</h2>
-                 <div className = "row">
-                 <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addCustomer} style={{marginBottom:"10px", marginLeft:"13px"}}> Add Customer</button>
-                 </div>
+                 
                  <br></br>
                      <table className = "table table-striped table-bordered">
                             <thead>

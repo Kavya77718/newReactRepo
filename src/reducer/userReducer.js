@@ -1,4 +1,4 @@
-import { actionTypes } from "../Service/userTypes";
+import { actionTypes } from "../services/userTypes";
 const INITIAL_STATE = {
   user: null,
   loggedIn: false,
