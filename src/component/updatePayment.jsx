@@ -6,19 +6,23 @@ class UpdatePayment extends Component {
     super(props);
     this.state = {
       paymentId: this.props.match.params.paymentId,
-      paymentType: "",
+      transactionMode: "",
       itemTotal: "",
       shippingFee: "",
       totalPrice: "",
       transactionStatus: "",
+      transactionDate: "",
     };
     this.changePaymentIdHandler = this.changePaymentIdHandler.bind(this);
-    this.changePaymentTypeHandler = this.changePaymentTypeHandler.bind(this);
+    this.changeTransactionModeHandler =
+      this.changeTransactionModeHandler.bind(this);
     this.changeItemTotalHandler = this.changeItemTotalHandler.bind(this);
     this.changeShippingFeeHandler = this.changeShippingFeeHandler.bind(this);
     this.changeTotalPriceHandler = this.changeTotalPriceHandler.bind(this);
     this.changeTransactionStatusHandler =
       this.changeTransactionStatusHandler.bind(this);
+    this.changeTransactionDateHandler =
+      this.changeTransactionDateHandler.bind(this);
     this.updatePayment = this.updatePayment.bind(this);
   }
 
@@ -26,12 +30,12 @@ class UpdatePayment extends Component {
     PaymentService.getPaymentById(this.state.paymentId).then((res) => {
       let payment = res.data;
       this.setState({
-        paymentId: this.state.paymentId,
-        paymentType: this.state.paymentType,
-        itemTotal: this.state.itemTotal,
-        shippingFee: this.state.shippingFee,
-        totalPrice: this.state.totalPrice,
-        transactionStatus: this.state.transactionStatus,
+        paymentId: payment.paymentId,
+        transactionMode: payment.transactionMode,
+        itemTotal: payment.itemTotal,
+        shippingFee: payment.shippingFee,
+        transactionStatus: payment.transactionStatus,
+        transactionDate: payment.transactionDate,
       });
     });
   }
@@ -40,11 +44,12 @@ class UpdatePayment extends Component {
     e.preventDefault();
     let payment = {
       paymentId: this.state.paymentId,
-      paymentType: this.state.paymentType,
+      transactionMode: this.state.transactionMode,
       itemTotal: this.state.itemTotal,
       shippingFee: this.state.shippingFee,
       totalPrice: this.state.totalPrice,
       transactionStatus: this.state.transactionStatus,
+      transactionDate: this.state.transactionDate,
     };
     console.log("payment => " + JSON.stringify(payment));
 
@@ -60,8 +65,8 @@ class UpdatePayment extends Component {
     this.setState({ paymentId: event.target.value });
   };
 
-  changePaymentTypeHandler = (event) => {
-    this.setState({ paymentType: event.target.value });
+  changeTransactionModeHandler = (event) => {
+    this.setState({ transactionMode: event.target.value });
   };
 
   changeItemTotalHandler = (event) => {
@@ -78,6 +83,10 @@ class UpdatePayment extends Component {
 
   changeTransactionStatusHandler = (event) => {
     this.setState({ transactionStatus: event.target.value });
+  };
+
+  changeTransactionDateHandler = (event) => {
+    this.setState({ transactionDate: event.target.value });
   };
 
   cancel() {
@@ -107,11 +116,11 @@ class UpdatePayment extends Component {
                   <div className="form-group">
                     <label>Payment Type:</label>
                     <input
-                      placeholder="paymentType"
-                      name="paymentType"
+                      placeholder="transactionMode"
+                      name="transactionMode"
                       className="form-control"
-                      value={this.state.paymentType}
-                      onChange={this.changePaymentTypeHandler}
+                      value={this.state.transactionMode}
+                      onChange={this.changeTransactionModeHandler}
                     />
                   </div>
                   <div className="form-group">
@@ -152,6 +161,16 @@ class UpdatePayment extends Component {
                       className="form-control"
                       value={this.state.transactionStatus}
                       onChange={this.changeTransactionStatusHandler}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Payment Date</label>
+                    <input
+                      placeholder="transactionDate"
+                      name="transactionDate"
+                      className="form-control"
+                      value={this.state.transactionDate}
+                      onChange={this.changeTransactionDateHandler}
                     />
                   </div>
                   <button

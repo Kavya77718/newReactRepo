@@ -31,6 +31,9 @@ import UpdateBilling from "./component/updateBill";
 import Counter from "./component/counter";
 import Login from "./component/Login";
 import Register from "./component/Register";
+
+//import BillingForm from './components/billingForm';
+
 import Navbar from "./component/Navbar";
 
 import Orderdets from "./component/orderdets";
@@ -41,7 +44,11 @@ import ViewPayment from "./component/viewPayment";
 import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
+
+//import ShippingAdressScreen from "./screens/ShippingAdressScreen";
+
 import CustomerProfile from './component/customerProfile';
+
 
 let emailId;
 if (localStorage.getItem("emailId")) {
