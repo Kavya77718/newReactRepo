@@ -32,7 +32,7 @@ class ViewPayment extends Component {
               <label>
                 <b>Payment Type</b>{" "}
               </label>
-              <div>{this.state.payment.paymentType}</div>
+              <div>{this.state.payment.transactionMode}</div>
             </div>
             <div className="row">
               <label>
@@ -57,6 +57,12 @@ class ViewPayment extends Component {
                 <b>Transaction status </b>
               </label>
               <div>{this.state.payment.transactionStatus}</div>
+            </div>
+            <div className="row">
+              <label>
+                <b>Payment Date </b>
+              </label>
+              <div>{this.state.payment.transactionDate}</div>
             </div>
           </div>
         </div>

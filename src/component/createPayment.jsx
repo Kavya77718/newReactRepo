@@ -7,20 +7,24 @@ class CreatePayment extends Component {
     this.state = {
       payment: {
         paymentId: "",
-        paymentType: "",
+        transactionMode: "",
         itemTotal: "",
         shippingFee: "",
         totalPrice: "",
         transactionStatus: "",
+        transactionDate: "",
       },
     };
     this.changePaymentIdHandler = this.changePaymentIdHandler.bind(this);
-    this.changePaymentTypeHandler = this.changePaymentTypeHandler.bind(this);
+    this.changeTransactionModeHandler =
+      this.changeTransactionModeHandler.bind(this);
     this.changeItemTotalHandler = this.changeItemTotalHandler.bind(this);
     this.changeShippingFeeHandler = this.changeShippingFeeHandler.bind(this);
     this.changeTotalPriceHandler = this.changeTotalPriceHandler.bind(this);
     this.changeTransactionStatusHandler =
       this.changeTransactionStatusHandler.bind(this);
+    this.changeTransactionDateHandler =
+      this.changeTransactionDateHandler.bind(this);
     this.savePayment = this.savePayment.bind(this);
   }
 
@@ -28,11 +32,12 @@ class CreatePayment extends Component {
     e.preventDefault();
     let payment = {
       paymentId: this.state.paymentId,
-      paymentType: this.state.paymentType,
+      transactionMode: this.state.transactionMode,
       itemTotal: this.state.itemTotal,
       shippingFee: this.state.shippingFee,
       totalPrice: this.state.totalPrice,
       transactionStatus: this.state.transactionStatus,
+      transactionDate: this.state.transactionDate,
     };
     console.log("payment => " + JSON.stringify(payment));
 
@@ -45,8 +50,8 @@ class CreatePayment extends Component {
     this.setState({ paymentId: event.target.value });
   };
 
-  changePaymentTypeHandler = (event) => {
-    this.setState({ paymentType: event.target.value });
+  changeTransactionModeHandler = (event) => {
+    this.setState({ transactionMode: event.target.value });
   };
 
   changeItemTotalHandler = (event) => {
@@ -63,6 +68,10 @@ class CreatePayment extends Component {
 
   changeTransactionStatusHandler = (event) => {
     this.setState({ transactionStatus: event.target.value });
+  };
+
+  changeTransactionDateHandler = (event) => {
+    this.setState({ transactionDate: event.target.value });
   };
 
   cancel() {
@@ -95,8 +104,8 @@ class CreatePayment extends Component {
                       placeholder="paymentType"
                       name="paymentType"
                       className="form-control"
-                      value={this.state.paymentType}
-                      onChange={this.changePaymentTypeHandler}
+                      value={this.state.transactionMode}
+                      onChange={this.changeTransactionModeHandler}
                     />
                   </div>
                   <div className="form-group">
@@ -139,7 +148,16 @@ class CreatePayment extends Component {
                       onChange={this.changeTransactionStatusHandler}
                     />
                   </div>
-
+                  <div className="form-group">
+                    <label>Payment Date</label>
+                    <input
+                      placeholder="transactionDate"
+                      name="transactionDate"
+                      className="form-control"
+                      value={this.state.transactionDate}
+                      onChange={this.changeTransactionDateHandler}
+                    />
+                  </div>
                   <button
                     className="btn btn-success"
                     onClick={this.savePayment}
