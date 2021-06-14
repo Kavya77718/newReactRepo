@@ -9,8 +9,8 @@ body {
   /* background-color: rgb(214, 78, 44); */
   background-image: linear-gradient(
     20deg,
-    rgb(191, 224, 130),
-    rgb(169, 223, 228)
+    /* rgb(191, 224, 130)*/ #c4fb6d,
+    /*rgb(169, 223, 228)*/ #76ead7
   );
   /* position: sticky; */
   /* top: 0%; */
@@ -49,7 +49,7 @@ body {
 }
 
 .search-button {
-  color: #c4fb6d;
+  color: #393e46;
   background-color: #ffffff;
   border-color: #ffffff;
   /* padding: 50px; */
