@@ -76,38 +76,68 @@ class AddAddress extends Component {
                         <div className="caed col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center">Add Customer</h3>
                             <div className="card-body">
-                                <form>
-                                <div className="form-group">
-                                        <label>AddressId:</label>
-                                        <input placeholder="AddressId" name="id" className="form-control" value={this.state.id} onChange={this.changeIdHandler}/>
-                                </div>
+                                <form onClick={this.saveAddress}>
+                                
                                     <div className="form-group">
                                         <label>flatNo:</label>
-                                        <input placeholder="flat no" name="flatno" className="form-control" value={this.state.flatNo} onChange={this.changeFlatNoHandler}/>
+                                        <input placeholder="flat no" 
+                                        name="flatno" 
+                                        className="form-control" 
+                                        value={this.state.flatNo} 
+                                        onChange={this.changeFlatNoHandler} 
+                                        required/>
                                     </div>
                                     <div className="form-group">
                                         <label>Building Name:</label>
-                                        <input placeholder="Building Name" name="buildingName" className="form-control" value={this.state.buildingName} onChange={this.changeBuildingNameHandler}/>
+                                        <input placeholder="Building Name" 
+                                        name="buildingName" className="form-control" 
+                                        value={this.state.buildingName} 
+                                        onChange={this.changeBuildingNameHandler}
+                                        required/>
                                     </div>
                                     <div className="form-group">
                                         <label>Area:</label>
-                                        <input placeholder="Area" name="Area" className="form-control" value={this.state.area} onChange={this.changeAreaHandler}/>
+                                        <input placeholder="Area"
+                                         name="Area" className="form-control"
+                                         value={this.state.area}
+                                         onChange={this.changeAreaHandler}
+                                         />
                                     </div>
                                     <div className="form-group">
                                         <label>City:</label>
-                                        <input placeholder="City" name="city" className="form-control" value={this.state.location} onChange={this.changeLocationHandler}/>
+                                        <input placeholder="City"
+                                        name="city" 
+                                        className="form-control" 
+                                        value={this.state.location} 
+                                        onChange={this.changeLocationHandler}
+                                        required placeholder="Enter a city" />
                                     </div>
                                     <div className="form-group">
                                         <label>State:</label>
-                                        <input placeholder="State" name="state" className="form-control" value={this.state.state} onChange={this.changeStateHandler}/>
+                                        <input placeholder="State" name="state"
+                                        className="form-control" 
+                                        value={this.state.state} 
+                                        onChange={this.changeStateHandler}
+                                        />
                                     </div>
                                     <div className="form-group">
                                         <label>Pincode:</label>
-                                        <input placeholder="Pincode" name="pincode" className="form-control" value={this.state.pincode} onChange={this.changePincodeHandler}/>
+                                        <input placeholder="Pincode" 
+                                        name="pincode" 
+                                        className="form-control" 
+                                        value={this.state.pincode} 
+                                        onChange={this.changePincodeHandler}
+                                        />
                                     </div>
                 
-                                    <button className="btn btn-success" onClick={this.saveAddress}> Save</button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
+                                    <button className="btn btn-success"
+                                     >
+                                     Save
+                                     </button>
+                                    <button className="btn btn-danger" 
+                                    onClick={this.cancel.bind(this)} 
+                                    style={{marginLeft:"10px"}}>
+                                    Cancel</button>
 
                                 </form>
                             

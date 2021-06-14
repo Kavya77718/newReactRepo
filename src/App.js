@@ -31,7 +31,9 @@ import UpdateBilling from "./component/updateBill";
 import Counter from "./component/counter";
 import Login from "./component/Login";
 import Register from "./component/Register";
+
 //import BillingForm from './components/billingForm';
+
 import Navbar from "./component/Navbar";
 
 import Orderdets from "./component/orderdets";
@@ -42,7 +44,11 @@ import ViewPayment from "./component/viewPayment";
 import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
+
 //import ShippingAdressScreen from "./screens/ShippingAdressScreen";
+
+import CustomerProfile from './component/customerProfile';
+
 
 let emailId;
 if (localStorage.getItem("emailId")) {
@@ -53,8 +59,8 @@ if (localStorage.getItem("emailId")) {
 function App() {
   return (
     <Router>
-      <HeaderComponent />
-      <div className="container">
+      
+      
         <Switch>
           <Route path="/" exact component={CustomerHomepage}></Route>
           <div style={{ margin: "20px" }}>
@@ -77,6 +83,7 @@ function App() {
             <Route path="/add-feedback" component={AddFeedback}></Route>
             <Route path="/" exact component={Vegetable}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
+            <Route path = "/profile" component = {CustomerProfile}></Route>
             <Route
               path="/Create-vegetable"
               exact
@@ -149,8 +156,8 @@ function App() {
             ></Route>
           </div>
         </Switch>
-      </div>
-      <FooterComponent />
+      
+      
     </Router>
   );
 }

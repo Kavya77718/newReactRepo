@@ -95,9 +95,11 @@ class Navbar extends React.Component {
                         <button className="dropdown-item indrop" type="button">
                           Category
                         </button>
+                        <Link to="/profile" style={{ textDecoration: "none" }}>
                         <button className="dropdown-item indrop" type="button">
                           Profile
                         </button>
+                        </Link>
                       </div>
                     </div>
                     <Link to="/cart" style={{ textDecoration: "none" }}>
@@ -115,7 +117,7 @@ class Navbar extends React.Component {
                       </a>
                     </Link>
                     {/* <span className="vl"></span>{" "} */}
-                    <Link to="login/_add" style={{ textDecoration: "none" }}>
+                    <Link to="/login" style={{ textDecoration: "none" }}>
                       <a
                         className="nav-link nav-user-img cartLog"
                         href="#"
