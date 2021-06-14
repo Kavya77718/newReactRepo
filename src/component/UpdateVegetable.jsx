@@ -10,27 +10,29 @@ class UpdateVegetable extends Component {
             name :'',
             type:'',
             price:'',
-            quantity:''
+            quantity:'',
+            description:''
         }
         this.changevegIdHandler=this.changevegIdHandler.bind(this);
         this.changenameHandler=this.changenameHandler.bind(this);
         this.changetypeHandler=this.changetypeHandler.bind(this);
         this.changepriceHandler=this.changepriceHandler.bind(this);
         this.changequantityHandler=this.changequantityHandler.bind(this);
+        this.changedescriptionHandler=this.changedescriptionHandler.bind(this);
         this.editvegetable=this.editvegetable.bind(this);
     }
 
     componentDidMount(){
         VegetableService.viewVegetableById(this.state.vegId).then((res) =>{
             let vegetable=res.data;
-            this.setState({vegId:vegetable.vegId,name:vegetable.name,type:vegetable.type,price:vegetable.price,quantity:vegetable.quantity});
+            this.setState({vegId:vegetable.vegId,name:vegetable.name,type:vegetable.type,price:vegetable.price,quantity:vegetable.quantity,description:vegetable.description});
         });
     }
 
     editvegetable = (e) => {
         e.preventDefault();
         let vegetable ={vegId:this.state.vegId,name:this.state.name,type:this.state.type,
-            price:this.state.price,quantity:this.state.quantity};
+            price:this.state.price,quantity:this.state.quantity,description:this.state.description};
         console.log('vegetable=>'+JSON.stringify(vegetable));
 
         VegetableService.update(this.state.vegId,vegetable).then((res) => {
@@ -52,6 +54,9 @@ class UpdateVegetable extends Component {
     }
     changequantityHandler =(event) => {
         this.setState({quantity:event.target.value});
+    }
+    changedescriptionHandler =(event) => {
+        this.setState({description:event.target.value});
     }
 
     cancel(){
@@ -91,6 +96,10 @@ class UpdateVegetable extends Component {
                                   <div className="form-group">
                                       <label>Quantity</label>
                                       <input placeholder="Quantity" name="quantity" className="form-control" value={this.state.quantity} onChange={this.changequantityHandler}/>
+                                  </div>
+                                  <div className="form-group">
+                                      <label>Description</label>
+                                      <input placeholder="Description" name="description" className="form-control" value={this.state.description} onChange={this.changedescriptionHandler}/>
                                   </div>
                                   <button className="btn btn-success" onClick={this.editvegetable.bind(this)}>Save</button>
                                   <button className="btn btn-danger"  onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
