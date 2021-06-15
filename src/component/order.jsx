@@ -51,7 +51,7 @@ function Order() {
 
   return (
     <div style={{ width: "480px", margin: "auto", marginTop: "50px" }}>
-      <h2> Confirm Shipping Adress</h2>
+      <h2> Confirm Shipping Address</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Col} controlId="formGridAddress">
           <Form.Label>Flat No</Form.Label>
