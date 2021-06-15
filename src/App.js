@@ -6,7 +6,6 @@ import Createvegetable from "./component/Createvegetable";
 import UpdateVegetable from "./component/UpdateVegetable";
 import ViewVegetable from "./component/ViewVegetable";
 import Cart from "./component/Cart";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ListCustomer from "./component/listCustomer";
 import AddCustomer from "./component/addCustomer";
@@ -20,7 +19,7 @@ import AddAddress from "./component/addAddress";
 import ViewAddress from "./component/viewAddress";
 import UpdateAddress from "./component/updateAddress";
 import AdminHome from "./component/AdminPage/adminHome";
-import UserFeedback from "./component/userFeedback";
+
 import Billing from "./component/billing";
 import ViewBilling from "./component/viewBilling";
 import CreateBilling from "./component/createBill";
@@ -28,14 +27,10 @@ import UpdateBilling from "./component/updateBill";
 import Counter from "./component/counter";
 import Login from "./component/Login";
 import Register from "./component/Register";
-<<<<<<< HEAD
-import AddUserFeedback from "./component/AddUserFeedback";
-=======
-
 //import BillingForm from './component/billingForm';
-import Navbar from "./component/Navbar";
+import Order from "./component/order";
+import OrderDetail from "./component/OrderDetail";
 
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
 import Orderdets from "./component/orderdets";
 import ViewOrder from "./component/viewOrder";
 import CreateOrder from "./component/createOrder";
@@ -44,26 +39,7 @@ import ViewPayment from "./component/viewPayment";
 import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
-
-import VegetableListing from "./component/vegetableListing";
-import VegetableDetail from "./component/vegetableDetail";
-
-
-
-//import ShippingAdressScreen from "./screens/ShippingAdressScreen";
-
-import CustomerProfile from './component/customerProfile';
-<<<<<<< HEAD
-import {Navbar} from './component/HomePage/navbar';
-import Navbar_old from './component/HomePage/navbar_old';
-=======
-import VegetableDetail from './component/vegetableDetail';
-import VegetableListing from './component/vegetableListing';
-//import Shipping from "./component/shipping";
-import Order from "./component/order";
-import OrderDetail from "./component/OrderDetail";
-import PaymentPage from "./component/PaymentPage";
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
+import Navbar from "./component/HomePage/navbar";
 
 let emailId;
 if (localStorage.getItem("emailId")) {
@@ -72,87 +48,13 @@ if (localStorage.getItem("emailId")) {
 }
 
 function App() {
-
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div>
-    
-    <Router>    
-    <Navbar_old/>  
-=======
-
-
-=======
->>>>>>> e3c6ca21d88e046b8bd821a844f0fa20201a38b8
     <Router>
-      <Switch>
-        <Route path="/" exact component={CustomerHomepage}></Route>
-        <div style={{ margin: "20px" }}>
-          <Route path="/admin-component" component={AdminHome}></Route>
-          <Route path="/customer" component={ListCustomer}></Route>
-          <Route path="/add-customer" component={AddCustomer}></Route>
-          <Route
-            path="/view-customers/:customerId"
-            component={ViewCustomer}
-          ></Route>
-          <Route
-            path="/update-customers/:customerId"
-            component={UpdateCustomer}
-          ></Route>
-          <Route path="/address" component={Address}></Route>
-          <Route path="/add-address" component={AddAddress}></Route>
-          <Route path="/view-address/:id" component={ViewAddress}></Route>
-          <Route path="/update-address/:id" component={UpdateAddress}></Route>
-          <Route path="/feedback" component={Feedback}></Route>
-          <Route path="/add-feedback" component={AddFeedback}></Route>
-          <Route path="/" exact component={Vegetable}></Route>
-          <Route path="/vegetable" exact component={Vegetable}></Route>
-          <Route path="/profile" component={CustomerProfile}></Route>
-          <Route
-            path="/Create-vegetable"
-            exact
-            component={Createvegetable}
-          ></Route>
-          <Route
-            path="/update/:vegId"
-            exact
-            component={UpdateVegetable}
-          ></Route>
-          <Route
-            path="/View-Vegetable/:vegId"
-            exact
-            component={ViewVegetable}
-          ></Route>
-          <Route path="/cart/" exact component={Cart}></Route>
-          <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
-          <Route path="/vegetablehome/" exact component={VegetableHome}></Route>
 
-          <Route exact path="/login" exact component={Login} />
-          <Route exact path="/register" exact component={Register} />
-          <Route path="/counter" exact component={Counter}></Route>
-          <Route path="/" exact component={Billing}></Route>
-          <Route
-            path="/view-bills/:billingId"
-            exact
-            component={ViewBilling}
-          ></Route>
-          <Route path="/add-bills" exact component={CreateBilling}></Route>
-          <Route
-            path="/update-bills/:billingId"
-            exact
-            component={UpdateBilling}
-          ></Route>
-
-<<<<<<< HEAD
-      <div className="container">
-
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
+      <Navbar/>
         <Switch>
-=======
->>>>>>> e3c6ca21d88e046b8bd821a844f0fa20201a38b8
           <Route path="/" exact component={CustomerHomepage}></Route>
-          
+          <div style={{ margin: "20px" }}>
             <Route path="/admin-component" component={AdminHome}></Route>
             <Route path="/customer" component={ListCustomer}></Route>
             <Route path="/add-customer" component={AddCustomer}></Route>
@@ -170,31 +72,8 @@ function App() {
             <Route path="/update-address/:id" component={UpdateAddress}></Route>
             <Route path="/feedback" component={Feedback}></Route>
             <Route path="/add-feedback" component={AddFeedback}></Route>
+            <Route path="/" exact component={Vegetable}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
-
-            <Route
-              path="/Create-vegetable"
-              exact
-              component={Createvegetable}
-            ></Route>
-            <Route
-              path="/update/:vegId"
-              exact
-              component={UpdateVegetable}
-            ></Route>
-            <Route
-              path="/View-Vegetable/:vegId"
-              exact
-              component={ViewVegetable}
-            ></Route>
-
-<<<<<<< HEAD
-            <Route path = "/profile" component = {CustomerProfile}></Route>
-            <Route path="/userfeedback" component={UserFeedback}></Route>
-            <Route path="/addUserfeedback" component={AddUserFeedback}></Route>
-=======
-            <Route path="/profile" component={CustomerProfile}></Route>
->>>>>>> e3c6ca21d88e046b8bd821a844f0fa20201a38b8
             <Route
               path="/Create-vegetable"
               exact
@@ -214,7 +93,7 @@ function App() {
             <Route exact path="/login" exact component={Login} />
             <Route exact path="/register" exact component={Register} />
             <Route path="/counter" exact component={Counter}></Route>
-            <Route path="/" exact component={Billing}></Route>
+            <Route path="/bill" exact component={Billing}></Route>
             <Route
               path="/view-bills/:billingId"
               exact
@@ -225,57 +104,6 @@ function App() {
               path="/update-bills/:billingId"
               exact
               component={UpdateBilling}
-            ></Route>
-            <Route
-              path="/vegetablepage/"
-              exact
-              component={VegetablePage}
-            ></Route>
-            <Route
-              path="/vegetablehome/"
-              exact
-              component={VegetableHome}
-            ></Route>
-
-            <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
-            <Route path="/vegetablehome/"exact component={VegetableHome}></Route>
-
-          <Route path="/orderdets" exact component={Orderdets}></Route>
-          <Route path="/" exact component={Orderdets}></Route>
-          <Route
-            path="/view-order/:orderNo"
-            exact
-            component={ViewOrder}
-          ></Route>
-          <Route path="/add-order" exact component={CreateOrder}></Route>
-          <Route
-            path="/update-order/:orderNo"
-            exact
-            component={UpdateOrder}
-          ></Route>
-
-          <Route path="/payments" exact component={Payments}></Route>
-          <Route path="/" exact component={Payments}></Route>
-          <Route
-            path="/view-payment/:paymentId"
-            exact
-            component={ViewPayment}
-          ></Route>
-          <Route path="/add-payment" exact component={CreatePayment}></Route>
-          <Route
-            path="/update-payment/:paymentId"
-            exact
-            component={UpdatePayment}
-          ></Route>
-            <Route
-              path="/vegetablepage/"
-              exact
-              component={VegetablePage}
-            ></Route>
-            <Route
-              path="/vegetablehome/"
-              exact
-              component={VegetableHome}
             ></Route>
 
             <Route path="/orderdets" exact component={Orderdets}></Route>
@@ -305,37 +133,13 @@ function App() {
               exact
               component={UpdatePayment}
             ></Route>
-<<<<<<< HEAD
-<<<<<<< HEAD
-     
-=======
-            <Route path="/veglisting" exact component={VegetableListing}></Route>
-            <Route path="/vegetable/:vegId" exact component={VegetableDetail}></Route>
-          </div>
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
-        </Switch>
-=======
->>>>>>> e3c6ca21d88e046b8bd821a844f0fa20201a38b8
-
             <Route path="/checkout" exact component={Order}></Route>
             <Route path="/myorders" exact component={OrderDetail}></Route>
-            <Route path="/paymentpage" exact component={PaymentPage}></Route>
-
-            <Route
-              path="/veglisting"
-              exact
-              component={VegetableListing}
-            ></Route>
-            <Route
-              path="/vegetable/:vegId"
-              exact
-              component={VegetableDetail}
-            ></Route>
           </div>
-        </div>
-      </Switch>
+        </Switch>
+      
+    
     </Router>
-    </div>
   );
 }
 

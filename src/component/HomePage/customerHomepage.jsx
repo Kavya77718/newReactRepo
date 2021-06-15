@@ -1,5 +1,4 @@
     import { Component } from "react";
-    import Navbar from './navbar_old';
     import Carousel from './carousel';
     import Footer from "./footer";
     import Card from "./card";
