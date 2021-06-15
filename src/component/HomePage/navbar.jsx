@@ -89,6 +89,7 @@ function Navbar({ logoutUser }) {
                         <button className="btn dropdown-item indrop" type="button">
                         <a  href="\">
                           Home
+
                       </a>
                       </button>
                       <button className="btn dropdown-item indrop" type="button">
@@ -101,6 +102,17 @@ function Navbar({ logoutUser }) {
                           Profile
                       </a>
                       </button>
+
+                        </button>
+                        <button className="dropdown-item indrop" type="button">
+                          Category
+                        </button>
+                        <Link to="/profile" style={{ textDecoration: "none" }}>
+                        <button className="dropdown-item indrop" type="button">
+                          Profile
+                        </button>
+                        </Link>
+
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <Link to="/cart" style={{ textDecoration: "none" }}>
@@ -118,6 +130,7 @@ function Navbar({ logoutUser }) {
                         </span>
                       </a>
                     </Link>
+
                     <div style={{ display: "flex"}}>
         <Link 
         style={{ display: userIsLoggedIn ? "none" : "block" }}
@@ -128,6 +141,20 @@ function Navbar({ logoutUser }) {
                           &nbsp;
                           <Person/>&nbsp;
                           <h4 style={{'color':'white'}}>Login</h4>
+
+                    {/* <span className="vl"></span>{" "} */}
+                    <Link to="/login" style={{ textDecoration: "none" }}>
+                      <a
+                        className="nav-link nav-user-img cartLog"
+                        href="#"
+                        data-toggle="modal"
+                        data-target="#login-modal"
+                        data-abc="true"
+                      >
+                        <span className="login">
+                          <PersonCircle />
+                          &nbsp; LOGIN
+
                         </span>
         </Link>
         <Link

@@ -1,68 +1,36 @@
-import React, { Component } from "react";
+import React, { useState } from 'react'
+import axios from 'axios'
+import {Card, Container, Row,Button, Col} from 'react-bootstrap'
+import {useEffect} from 'react'
+import { Link } from 'react-router-dom';
+import {useSelector,useDispatch} from 'react-redux' 
 
-class Cart extends Component {
-  state = {};
-  render() {
+function Cart() {
+    const cartItems = useSelector((state) => state.shop.cart.vegetables);
+   
+   console.log("cart",cartItems)
+
     return (
-      <div>
-        <h1 className="text-center">Your cart is empty</h1>
-      </div>
-    );
-  }
+        <Container>
+        <Row xs={1} md={3} className="g-4">
+        {cartItems&&
+          cartItems.map((vege) => (
+            <Col key={vege.vegId}>
+              <Card>
+                <Card.Body>
+                    {" "}
+                    <Card.Title><Link to="/description" style={{textDecoration:"none"}}>{vege.name}</Link></Card.Title>
+                    <Card.Text>Rs.{vege.price}</Card.Text>
+                    <Card.Text>qty:{vege.quantity}</Card.Text>
+                  <Button variant="secondary">delete</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+      </Row>
+      <Button as={Link} to="/order" >checkout</Button>
+    </Container>
+    )
 }
 
-export default Cart;
-    
-    //this.Createcart=this.Createcart.bind(this);
-
-
-    /*Createcart=()=>{
-        this.props.history.push('/Create-cart');
-    
-    }
-
-    componentDidMount(){
-        
-        CartService.getAllCart().then((res)=>{
-            console.log("data: ", res.data);
-            this.setState({carts: res.data});
-    });
-    console.log("carts: ", this.state.carts);
-  };*/
-/*
-      render(){
-          return(
-      <div>
-      <h2 className="text-center">Cart</h2>
-                <div className="row">    
-                   <table className="table table-striped table-bordered"> 
-                    <thead>
-                        <tr>
-                            <th>Vegetable Name</th>
-                            <th>Vegetable Price</th>
-                            <th>Vegetable Type</th>
-                            <th>Vegetable Quantity</th>
-                            <th colSpan="3"> Actions </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.carts.map(
-                                Cart =>
-                                <tr key ={cart.cartId}>
-                                    <td>{cart.name}</td>
-                                    <td>{cart.price}</td>
-                                    <td>{cart.type}</td>
-                                    <td>{cart.quantity}</td>
-                                </tr>
-
-                            )
-                        }
-                    </tbody>
-                    </table>
-                </div>
-            </div>
-          );
-}*/
-
-
+export default Cart

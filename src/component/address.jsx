@@ -6,8 +6,6 @@ class Address extends Component {
         super(props)
         
         this.state = {  
-            
-            search:"",
             addresses:[]
         }
         
@@ -51,12 +49,6 @@ class Address extends Component {
              <div className="row">
                  <button className="btn btn-info" onClick={this.addAddress}>Add Address</button>
              </div>
-             
-                <form className="form-inline my-2 my-lg-0">
-                    <input
-                    className="form-control ml-auto" type="search" placeholder="search by Id" aria-label="search"onChange={this.onChange}/>
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="button" onClick={this.viewAddressById}> Search</button> 
-                </form>
                 <div className="row">
                     <table className="table table-striped table-bordered"> 
                     <thead>

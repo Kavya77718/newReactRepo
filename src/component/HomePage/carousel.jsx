@@ -4,7 +4,9 @@ import React, { Component } from 'react';
 //import carousel4 from "../../photos/carousel4.jpg";
 import bas3 from "../../photos/bas3.jpg";
 import vegs from "../../photos/vegs.jpg"
-//import veg1 from "../../photos/veg1.png";
+
+import veg1 from "../../photos/veg1.png";
+
 import Organic1 from "../../photos/Organic1.jpg";
 
 class Carousel extends Component {

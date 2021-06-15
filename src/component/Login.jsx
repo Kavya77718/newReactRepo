@@ -3,8 +3,12 @@ import axios from 'axios'
 import { connect } from "react-redux";
 import {  useHistory } from "react-router";
 import { loginUser } from "../action/userActions";
+
 import { logoutUser } from "../action/userActions";
 import navbar from "../component/HomePage/navbar";
+
+import Navbar from "./Navbar";
+
 const { useState } = React;
 
 function Login({user,loginUser}) {
@@ -24,7 +28,11 @@ const history= useHistory();
   };
   return (
     <div class="body">
+
       <navbar/>
+
+      <Navbar/>
+
     <div className="mt-5 ">
       <form onSubmit={submitHandler} style={{ width: "480px", margin: "auto" }}>
       <h2>Email Id</h2>
