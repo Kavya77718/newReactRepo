@@ -6,7 +6,7 @@ class Vegetable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      vegetables: [],
+      vegetables: [], 
       search: "",
     };
 
@@ -90,6 +90,7 @@ class Vegetable extends Component {
                 <th>Vegetable Price</th>
                 <th>Vegetable Type</th>
                 <th>Vegetable Quantity</th>
+                <th>Description</th>
                 <th colSpan="3"> Actions </th>
               </tr>
             </thead>
@@ -100,6 +101,7 @@ class Vegetable extends Component {
                   <td>{vegetable.price}</td>
                   <td>{vegetable.type}</td>
                   <td>{vegetable.quantity}</td>
+                  <td>{vegetable.description}</td>
                   <td
                     style={{ color: "red" }}
                     onClick={() => this.deleteByvegId(vegetable.vegId)}

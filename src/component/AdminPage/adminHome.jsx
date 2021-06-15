@@ -30,7 +30,21 @@ class AdminHome extends React.Component {
                    Feedback
               </Link>
             </li>
-            
+            <li>
+              <Link to="/Orderdets">
+                   Orders
+              </Link>
+            </li>
+            <li>
+              <Link to="/Vegetable">
+                   Vegetables
+              </Link>
+            </li>
+            <li>
+              <Link to="/bill">
+                   Bills
+              </Link>
+            </li>
           </ul>
         </div>
 

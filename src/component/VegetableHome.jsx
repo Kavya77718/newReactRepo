@@ -37,8 +37,7 @@ function VegetableHome() {
                   <Card.Title>{veg.name}</Card.Title>
                   <Card.Title>{veg.type}</Card.Title>
                   <Card.Text>Rs.{veg.price}</Card.Text>
-                  <Card.Link href="http://localhost:3000/cart"><button type="button" color="#ffffff">AddToCart</button></Card.Link>
-              
+                  <Card.Link href="http://localhost:3000/cart"><button type="button" className="btn btn-primary">AddToCart</button></Card.Link>
                 </Card.Body>
               </Card>
             </Col>

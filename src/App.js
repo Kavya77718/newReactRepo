@@ -3,7 +3,6 @@ import "./App.css";
 import Vegetable from "./component/Vegetable";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import FooterComponent from "./component/FooterComponent";
-import HeaderComponent from "./component/HeaderComponent";
 import Createvegetable from "./component/Createvegetable";
 import UpdateVegetable from "./component/UpdateVegetable";
 import ViewVegetable from "./component/ViewVegetable";
@@ -31,6 +30,7 @@ import UpdateBilling from "./component/updateBill";
 import Counter from "./component/counter";
 import Login from "./component/Login";
 import Register from "./component/Register";
+
 //import BillingForm from './component/billingForm';
 import Order from "./component/order";
 import OrderDetail from "./component/OrderDetail";
@@ -44,17 +44,32 @@ import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
 
+
+import VegetableListing from "./component/vegetableListing";
+import VegetableDetail from "./component/vegetableDetail";
+
+
+//import ShippingAdressScreen from "./screens/ShippingAdressScreen";
+
+import CustomerProfile from './component/customerProfile';
+
+
+
 let emailId;
 if (localStorage.getItem("emailId")) {
   emailId = localStorage.getItem("emailId");
   console.log(emailId);
 }
 
+
 function App() {
   return (
+
+
     <Router>
 
       <div className="container">
+
         <Switch>
           <Route path="/" exact component={CustomerHomepage}></Route>
           <div style={{ margin: "20px" }}>
@@ -75,8 +90,15 @@ function App() {
             <Route path="/update-address/:id" component={UpdateAddress}></Route>
             <Route path="/feedback" component={Feedback}></Route>
             <Route path="/add-feedback" component={AddFeedback}></Route>
-            <Route path="/" exact component={Vegetable}></Route>
+
+            <Route path="/v" exact component={Vegetable}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
+
+            <Route path="/Create-vegetable" exact component={Createvegetable}></Route>
+            <Route path="/update/:vegId" exact component={UpdateVegetable}></Route>
+            <Route path="/View-Vegetable/:vegId" exact component={ViewVegetable}></Route>
+
+            <Route path = "/profile" component = {CustomerProfile}></Route>
             <Route
               path="/Create-vegetable"
               exact
@@ -93,6 +115,7 @@ function App() {
               component={ViewVegetable}
             ></Route>
             <Route path="/cart/" exact component={Cart}></Route>
+
             <Route
               path="/vegetablepage/"
               exact
@@ -104,6 +127,10 @@ function App() {
               component={VegetableHome}
             ></Route>
             
+
+            <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
+            <Route path="/vegetablehome/"exact component={VegetableHome}></Route>
+
             <Route exact path="/login" exact component={Login} />
             <Route exact path="/register" exact component={Register} />
             <Route path="/counter" exact component={Counter}></Route>
@@ -147,14 +174,24 @@ function App() {
               exact
               component={UpdatePayment}
             ></Route>
+
             <Route path="/checkout" exact component={Order}></Route>
             <Route path="/myorders" exact component={OrderDetail}></Route>
+  <Route path="/veglisting" exact component={VegetableListing}></Route>
+            <Route path="/vegetable/:vegId" exact component={VegetableDetail}></Route>
+
           </div>
         </Switch>
+
       </div>
     
+
     </Router>
   );
 }
 
 export default App;
+
+
+
+
