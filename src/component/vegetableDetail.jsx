@@ -3,18 +3,16 @@ import axios from 'axios';
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {useParams} from 'react-router-dom'
+
 const { useEffect,useState } = React;
 function VegetableDetail() {
     const {vegId}= useParams();
 const [veg, setveg] = useState({})
     const fetchVegDetail= async()=>{
-        const res= await axios.get(`http://localhost:8082/api/vegetable/viewvegetablebyid/${encodeURI(vegId)}`).then(res=>{
-            console.log("response of single",res);
-            setveg(res.data);
-        }).catch(err=>{
-            console.error(err)
-          
-        })
+        const res= await axios.get(`http://localhost:8080/api/vegetable/viewvegetablebyid/${vegId}`)
+        setveg(res.data)
+        console.log(veg)
+         
         
     }
     useEffect(() => {
@@ -46,4 +44,3 @@ const [veg, setveg] = useState({})
 }
 
 export default VegetableDetail
-     

@@ -2,13 +2,11 @@ import logo from "./logo.svg";
 import "./App.css";
 import Vegetable from "./component/Vegetable";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import FooterComponent from "./component/FooterComponent";
 import Createvegetable from "./component/Createvegetable";
 import UpdateVegetable from "./component/UpdateVegetable";
 import ViewVegetable from "./component/ViewVegetable";
 import Cart from "./component/Cart";
-import VegetablePage from "./component/VegetablePage";
-import VegetableHome from "./component/VegetableHome";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ListCustomer from "./component/listCustomer";
 import AddCustomer from "./component/addCustomer";
@@ -42,40 +40,12 @@ import ViewPayment from "./component/viewPayment";
 import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
-=======
-
-//import BillingForm from './components/billingForm';
-import Navbar from "./component/Navbar";
-
-import Orderdets from "./component/orderdets";
-import ViewOrder from "./component/viewOrder";
-import CreateOrder from "./component/createOrder";
-import UpdateOrder from "./component/updateOrder";
-import ViewPayment from "./component/viewPayment";
-import CreatePayment from "./component/createPayment";
-import Payments from "./component/payments";
-import UpdatePayment from "./component/updatePayment";
-
-import VegetableListing from "./component/vegetableListing";
-import VegetableDetail from "./component/vegetableDetail";
-
-
-//import BillingForm from './components/billingForm';
-
-import Navbar from "./component/Navbar";
-
-import Orderdets from "./component/orderdets";
-import ViewOrder from "./component/viewOrder";
-import CreateOrder from "./component/createOrder";
-import UpdateOrder from "./component/updateOrder";
-import ViewPayment from "./component/viewPayment";
-import CreatePayment from "./component/createPayment";
-import Payments from "./component/payments";
-import UpdatePayment from "./component/updatePayment";
 
 //import ShippingAdressScreen from "./screens/ShippingAdressScreen";
 
 import CustomerProfile from './component/customerProfile';
+import VegetableDetail from './component/vegetableDetail';
+import VegetableListing from './component/vegetableListing';
 
 
 
@@ -87,6 +57,7 @@ if (localStorage.getItem("emailId")) {
 
 
 function App() {
+
   return (
 
 
@@ -114,8 +85,6 @@ function App() {
             <Route path="/update-address/:id" component={UpdateAddress}></Route>
             <Route path="/feedback" component={Feedback}></Route>
             <Route path="/add-feedback" component={AddFeedback}></Route>
-
-            <Route path="/v" exact component={Vegetable}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
 
             <Route path="/Create-vegetable" exact component={Createvegetable}></Route>
@@ -139,22 +108,6 @@ function App() {
               component={ViewVegetable}
             ></Route>
             <Route path="/cart/" exact component={Cart}></Route>
-
-            <Route
-              path="/vegetablepage/"
-              exact
-              component={VegetablePage}
-            ></Route>
-            <Route
-              path="/vegetablehome/"
-              exact
-              component={VegetableHome}
-            ></Route>
-            
-
-            <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
-            <Route path="/vegetablehome/"exact component={VegetableHome}></Route>
-
             <Route exact path="/login" exact component={Login} />
             <Route exact path="/register" exact component={Register} />
             <Route path="/counter" exact component={Counter}></Route>
