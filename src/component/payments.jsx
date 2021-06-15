@@ -55,6 +55,15 @@ class Payments extends Component {
     });
   }
 
+  getPaymentById = () => {
+    let payments = [];
+    PaymentService.getPaymentById(this.state.search).then((res) => {
+      payments = res.data;
+      this.setState({ payments });
+      console.log(this.state.payments);
+    });
+  };
+
   handleSort = (path) => {
     console.log(path);
     this.setState({ sortColumn: { path, order: "asc" } });
@@ -88,15 +97,6 @@ class Payments extends Component {
                 Add Payment
               </button>
             </div>
-            <form class="form-inline my-2 my-lg-0">
-              <input
-                className="form-control ml-auto"
-                type="search"
-                placeholder="Search by Id"
-                aria-label="Search"
-                onChange={this.onChange}
-              />
-            </form>
           </div>
 
           <table className="table table-striped table-bordered">

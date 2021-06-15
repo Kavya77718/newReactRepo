@@ -11,6 +11,10 @@ class PaymentService {
     return await axios.post(PAYMENT_API_BASE_URL + "/payments", payment);
   }
 
+  async getPaymentById(paymentId) {
+    return await axios.get(PAYMENT_API_BASE_URL + "/payment/id/" + paymentId);
+  }
+
   async updatePayment(paymentId, payment) {
     return await axios.put(
       PAYMENT_API_BASE_URL + "/payments/" + paymentId,

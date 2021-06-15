@@ -2,6 +2,26 @@ import React, { Component } from "react";
 import BillingService from "../services/billingService";
 
 class CreateBilling extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      billingId: "",
+      transactionMode: "",
+      transactionDate: "",
+      transactionStatus: "",
+    };
+    this.changeBillingIdHandler = this.changeBillingIdHandler.bind(this);
+    this.changeTransactionModeHandler =
+      this.changeTransactionModeHandler.bind(this);
+    this.changeTransactionDateHandler =
+      this.changeTransactionDateHandler.bind(this);
+    this.changeTransactionStatusHandler =
+      this.changeTransactionStatusHandler.bind(this);
+    this.saveBill = this.saveBill.bind(this);
+  }
+
+
+class CreateBilling extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -32,6 +52,7 @@ class CreateBilling extends Component {
     changeBillingIdHandler=(event) =>{
         this.setState({billingId: event.target.value})
     }
+
 
     changeTransactionModeHandler=(event) =>{
         this.setState({ transactionMode: event.target.value})
