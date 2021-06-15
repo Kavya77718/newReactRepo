@@ -31,6 +31,19 @@ import Counter from "./component/counter";
 import Login from "./component/Login";
 import Register from "./component/Register";
 
+//import BillingForm from './component/billingForm';
+import Navbar from "./component/Navbar";
+
+import Orderdets from "./component/orderdets";
+import ViewOrder from "./component/viewOrder";
+import CreateOrder from "./component/createOrder";
+import UpdateOrder from "./component/updateOrder";
+import ViewPayment from "./component/viewPayment";
+import CreatePayment from "./component/createPayment";
+import Payments from "./component/payments";
+import UpdatePayment from "./component/updatePayment";
+=======
+
 //import BillingForm from './components/billingForm';
 import Navbar from "./component/Navbar";
 
@@ -63,6 +76,7 @@ import UpdatePayment from "./component/updatePayment";
 //import ShippingAdressScreen from "./screens/ShippingAdressScreen";
 
 import CustomerProfile from './component/customerProfile';
+
 
 
 let emailId;
@@ -125,6 +139,19 @@ function App() {
               component={ViewVegetable}
             ></Route>
             <Route path="/cart/" exact component={Cart}></Route>
+
+            <Route
+              path="/vegetablepage/"
+              exact
+              component={VegetablePage}
+            ></Route>
+            <Route
+              path="/vegetablehome/"
+              exact
+              component={VegetableHome}
+            ></Route>
+            
+
             <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
             <Route path="/vegetablehome/"exact component={VegetableHome}></Route>
 
@@ -175,8 +202,10 @@ function App() {
             <Route path="/vegetable/:vegId" exact component={VegetableDetail}></Route>
           </div>
         </Switch>
-      
-      
+
+      </div>
+    
+
     </Router>
   );
 }

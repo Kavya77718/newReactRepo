@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ADDRESS_API_BASE_URL = "http://localhost:8080/address";
+const ADDRESS_API_BASE_URL = "http://localhost:8082/address";
 class AddressService{
         async getAllAddress(){
             return  await axios.get(ADDRESS_API_BASE_URL);

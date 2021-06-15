@@ -25,8 +25,8 @@ export const registerUser = (user) => async (dispatch) => {
       type: actionTypes.USER_REGISTER,
       payload: res.data,
     });
-  } catch (err) {
-    dispatch({ type: actionTypes.USER_REGISTER_FAIL, payload: err });
+  } catch (res) {
+    dispatch({ type: actionTypes.USER_REGISTER_FAIL, payload: res.message });
   }
 };
 
@@ -54,6 +54,12 @@ export const logoutUser = (emailId) => async (dispatch) => {
   }
 };
 export const loadUser = (emailId) => async (dispatch) => {
+
+  try{
+    const url = `http://localhost:8080/customer/getuser/${encodeURI(emailId)}`
+    const res= await getCust(url);
+    console.log("res loaduser",res);
+
   try {
     const url = `http://localhost:8080/customer/logout/${encodeURI(emailId)}`;
     const res = getCust(url)
@@ -63,6 +69,7 @@ export const loadUser = (emailId) => async (dispatch) => {
       .catch((err) => {
         console.error(err);
       });
+
     dispatch({
       type: actionTypes.LOAD_USER,
       payload: res.data,
