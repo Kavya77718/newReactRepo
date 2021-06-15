@@ -29,6 +29,7 @@ function Navbar({ logoutUser }) {
     logoutUser(emailId);
   };
 
+
   return (
     <div>
       <header className="section-header hh">
@@ -105,6 +106,7 @@ function Navbar({ logoutUser }) {
                         <PencilSquare />&nbsp;
                         <h4 style={{ 'color': 'white' }}>Register</h4>
                       </span>
+
                     </Link>
                     <Link
                       style={{ display: userIsLoggedIn ? "none" : "block" }}
