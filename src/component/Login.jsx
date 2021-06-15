@@ -7,11 +7,9 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { loginUser } from "../action/userActions";
 import { logoutUser } from "../action/userActions";
-<<<<<<< HEAD
 
-=======
 import navbar from "../component/HomePage/navbar";
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
+
 const { useState } = React;
 
 function Login({ user, loginUser }) {
@@ -79,22 +77,19 @@ function Login({ user, loginUser }) {
   };
   return (
     <div class="body">
-<<<<<<< HEAD
-      
-=======
+
       <navbar/>
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
+
     <div className="mt-5 ">
       <form onSubmit={submitHandler} style={{ width: "480px", margin: "auto" }}>
       <h2>Email Id</h2>
         <div>
-<<<<<<< HEAD
-=======
+
         <label for="emailId" className="form-label">
           {" "}
             EmailId
           </label>
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
+
           <input
             type="emailId"
             class="form-control"
