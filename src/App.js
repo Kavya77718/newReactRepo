@@ -51,6 +51,7 @@ import CustomerProfile from "./component/customerProfile";
 //import Shipping from "./component/shipping";
 import Order from "./component/order";
 import OrderDetail from "./component/OrderDetail";
+import PaymentPage from "./component/PaymentPage";
 
 let emailId;
 if (localStorage.getItem("emailId")) {
@@ -149,6 +150,7 @@ function App() {
 
           <Route path="/checkout" exact component={Order}></Route>
           <Route path="/myorders" exact component={OrderDetail}></Route>
+          <Route path="/paymentpage" exact component={PaymentPage}></Route>
         </div>
       </Switch>
     </Router>
