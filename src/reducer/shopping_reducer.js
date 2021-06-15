@@ -1,6 +1,5 @@
 import * as actionTypes from "../services/shopping_types";
-const INITIAL_STATE = {  
-  vegetables :[],
+const INITIAL_STATE = {
   cart: [],
   currentItem: null,
 };

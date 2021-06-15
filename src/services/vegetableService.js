@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const VEGETABLE_API_BASE_URL = "http://localhost:8082/api/vegetable";
+const VEGETABLE_API_BASE_URL = "http://localhost:8080/api/vegetable";
 
 class VegetableService{
     async getAllVegetables(){
