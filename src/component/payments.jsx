@@ -55,16 +55,6 @@ class Payments extends Component {
     });
   }
 
-  paymentById = () => {
-    let payments = [];
-    PaymentService.getPaymentById(this.state.search).then((res) => {
-      console.log("**data: ", res.data);
-      payments = res.data;
-    });
-    this.setState({ payments });
-    console.log("** paymentById" + this.state.payment);
-  };
-
   handleSort = (path) => {
     console.log(path);
     this.setState({ sortColumn: { path, order: "asc" } });

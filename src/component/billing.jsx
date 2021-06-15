@@ -1,6 +1,5 @@
-import React,{ Component } from  'react';
-import BillingService from '../services/billingService';
-
+import React, { Component } from "react";
+import BillingService from "../services/billingService";
 
 class Billing extends Component {
   constructor(props) {
