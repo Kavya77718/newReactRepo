@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BillingService from '../Service/billingService';
+import BillingService from '../services/billingService';
 class CreateBilling extends Component {
     constructor(props){
         super(props)

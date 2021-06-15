@@ -25,7 +25,7 @@ export default class Footer extends Component {
                 {/* <!--headin5_amrc--> */}
                 <p class="mb10">
                   <Link to="/" style={{ textDecoration: "none" }}>
-                    VegiesShop.com
+                    www.Veggies.com
                   </Link>
                   
                 </p>
@@ -96,25 +96,25 @@ export default class Footer extends Component {
                   <li className="ll">
                     <a href="#">
                       <Twitter />
-                      &nbsp;https://twitter.com/VegiesShop
+                      &nbsp;https://twitter.com/Veggies
                     </a>
                   </li>
                   <li className="ll">
                     <a href="#">
                       <Facebook />
-                      &nbsp;https://facebook.com/VegiesShop
+                      &nbsp;https://facebook.com/Veggies
                     </a>
                   </li>
                   <li className="ll">
                     <a href="#">
                       <Instagram />
-                      &nbsp;https://instagram.com/VegiesShop
+                      &nbsp;https://instagram.com/Veggies
                     </a>
                   </li>
                   <li className="ll">
                     <a href="#">
                       <Youtube />
-                      &nbsp;https://youtube.com/VegiesShop
+                      &nbsp;https://youtube.com/Veggies
                     </a>
                   </li>
                   <li className="ll">

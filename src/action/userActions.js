@@ -1,4 +1,4 @@
-import { actionTypes } from "../Service/userTypes";
+import { actionTypes } from "../services/userTypes";
 import axios from "axios";
 
 export const loginUser = (loginDetails) => async (dispatch) => {
@@ -27,8 +27,8 @@ export const registerUser = (user) => async (dispatch) => {
       type: actionTypes.USER_REGISTER,
       payload: res.data,
     });
-  } catch (err) {
-    dispatch({ type: actionTypes.USER_REGISTER_FAIL, payload: err });
+  } catch (res) {
+    dispatch({ type: actionTypes.USER_REGISTER_FAIL, payload: res.message });
   }
 };
 
@@ -56,12 +56,9 @@ export const logoutUser = (emailId) => async (dispatch) => {
 };
 export const loadUser = (emailId) => async (dispatch) => {
   try{
-    const url = `http://localhost:8080/customer/logout/${encodeURI(emailId)}`
-    const res= getCust(url).then(response=>{
-      console.log("response of dispatch", response);
-    }).catch(err=>{
-      console.error(err);
-    })
+    const url = `http://localhost:8080/customer/getuser/${encodeURI(emailId)}`
+    const res= await getCust(url);
+    console.log("res loaduser",res);
     dispatch({
       type: actionTypes.LOAD_USER,
       payload: res.data,

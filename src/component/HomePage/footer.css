@@ -15,7 +15,7 @@
 }
 footer {
   width: 100%;
-  background-color: rgb(191, 224, 130);
+  background-color: #c4fb6d;
   min-height: 250px;
   padding: 10px 0px 25px 0px;
   /* margin-top: 40px; */
@@ -121,8 +121,7 @@ footer p {
   margin-top: 10px;
 }
 
- {
-  /*h4 {
+/*h4 {
   background-color: red;
   margin: 0%;
   padding-top: 10px;
@@ -131,4 +130,3 @@ footer p {
   color: whitesmoke;
   font-weight: 900;
 }*/
-}
