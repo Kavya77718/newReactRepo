@@ -26,10 +26,9 @@ class Carousel extends Component {
                 </div>
                 <div className="col">
                   <h3 style={{"margin-top":"200px","fontFamily":"-moz-initial"}}>BEST PRICE</h3>
-                  <div class="sub-title" style={{"color" :"grey" ,"fontWeight":"bold"}}>Eco-friendly rides at pocket-friendly rates </div>
+                  <div class="sub-title" style={{"color" :"grey" ,"fontWeight":"bold"}}>Vegan veggies at pocket-friendly rates </div>
                  <p>
-                 Fully air conditioned cars that you can share with others depending on your route and location.
-                                    
+                 
                  </p>
                 </div>
               </div>
@@ -45,7 +44,7 @@ class Carousel extends Component {
                   <h3 style={{"margin-top":"200px","fontFamily":"-moz-initial"}}><b>100% ORGANIC</b></h3>
                   <div class="sub-title" style={{"color" :"grey" ,"fontWeight":"bold"}}>For a healthier you.</div>
                  <p>
-                  Compact yet comfortable AC cars that seat up to 3 people and give you great value for your money. Small fares for short rides.
+                 You can eat a lot more vegetables than you can cotton candy. Bring on the veggies. Stay away from the fluffy carbs.
                 </p>
                 </div>
               </div>
@@ -61,7 +60,7 @@ class Carousel extends Component {
                   <h3 style={{"margin-top":"200px","fontFamily":"-moz-initial"}}><b>THE VEGGIES FOR LIFE</b></h3>
                   <div class="sub-title" style={{"color" :"grey" ,"fontWeight":"bold"}}>Live long have some veggies</div>
                  <p>
-                 Top rated drivers, and a hand-picked fleet of the best bus with extra legroom and boot space.
+                 You can eat a lot more vegetables than you can cotton candy. Bring on the veggies. Stay away from the fluffy carbs.
                 </p>
                 </div>
               </div>

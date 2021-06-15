@@ -12,8 +12,6 @@ body {
     /* rgb(191, 224, 130)*/ #c4fb6d,
     /*rgb(169, 223, 228)*/ #76ead7
   );
-  /* position: sticky; */
-  /* top: 0%; */
 }
 
 .logo {
@@ -91,8 +89,6 @@ body {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  /* border: 1px solid rgba(0, 0, 0, 0.15); */
-  /* border-radius: 0.25rem; */
 }
 
 .dropdown-item {
@@ -214,7 +210,7 @@ body {
 }
 
 .blink_me:hover {
-  color: red;
+  color: rgb(191, 224, 130);
 }
 
 .slogan {
@@ -224,7 +220,7 @@ body {
   justify-content: space-around;
 }
 #slo {
-  color: white;
+  color: #393e46;
 }
 
 .box {

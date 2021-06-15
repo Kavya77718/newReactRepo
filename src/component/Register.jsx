@@ -56,8 +56,9 @@ function Register({registerUser}) {
             onChange={(e) => setUser({ ...user, mobileNumber: e.target.value })}
             value={user.mobileNumber}
           />
-          <label for="emailId" className="sr-only">
-            emailId
+          <label for="emailId" className="form-label">
+          {" "}
+            EmailId
           </label>
           <input
             type="emailId"
@@ -66,7 +67,7 @@ function Register({registerUser}) {
             placeholder="emailId"
             onChange={(e) => setUser({ ...user, emailId: e.target.value })}
             value={user.emailId}
-          />
+          />        
         </div>
         <div class="mb-3 mt-2">
           <label for="password" class="form-label">

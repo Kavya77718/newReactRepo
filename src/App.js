@@ -23,7 +23,7 @@ import AddAddress from "./component/addAddress";
 import ViewAddress from "./component/viewAddress";
 import UpdateAddress from "./component/updateAddress";
 import AdminHome from "./component/AdminPage/adminHome";
-
+import UserFeedback from "./component/userFeedback";
 import Billing from "./component/billing";
 import ViewBilling from "./component/viewBilling";
 import CreateBilling from "./component/createBill";
@@ -31,8 +31,7 @@ import UpdateBilling from "./component/updateBill";
 import Counter from "./component/counter";
 import Login from "./component/Login";
 import Register from "./component/Register";
-import Navbar from "./component/Navbar";
-
+import AddUserFeedback from "./component/AddUserFeedback";
 import Orderdets from "./component/orderdets";
 import ViewOrder from "./component/viewOrder";
 import CreateOrder from "./component/createOrder";
@@ -42,6 +41,8 @@ import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
 import CustomerProfile from './component/customerProfile';
+import {Navbar} from './component/HomePage/navbar';
+import Navbar_old from './component/HomePage/navbar_old';
 
 let emailId;
 if (localStorage.getItem("emailId")) {
@@ -51,12 +52,13 @@ if (localStorage.getItem("emailId")) {
 
 function App() {
   return (
-    <Router>
-      
-      
+    <div>
+    
+    <Router>    
+    <Navbar_old/>  
         <Switch>
           <Route path="/" exact component={CustomerHomepage}></Route>
-          <div style={{ margin: "20px" }}>
+          
             <Route path="/admin-component" component={AdminHome}></Route>
             <Route path="/customer" component={ListCustomer}></Route>
             <Route path="/add-customer" component={AddCustomer}></Route>
@@ -77,6 +79,8 @@ function App() {
             <Route path="/" exact component={Vegetable}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
             <Route path = "/profile" component = {CustomerProfile}></Route>
+            <Route path="/userfeedback" component={UserFeedback}></Route>
+            <Route path="/addUserfeedback" component={AddUserFeedback}></Route>
             <Route
               path="/Create-vegetable"
               exact
@@ -147,11 +151,12 @@ function App() {
               exact
               component={UpdatePayment}
             ></Route>
-          </div>
+     
         </Switch>
       
       
     </Router>
+    </div>
   );
 }
 

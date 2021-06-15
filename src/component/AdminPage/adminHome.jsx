@@ -8,9 +8,6 @@ class AdminHome extends React.Component {
     return (
       <div>
         <div class="sidebar-container sid">
-          <div class="sidebar-logo">
-            <h4>OnlineVegetableApp</h4>
-          </div>
           <ul class="sidebar-navigation">
             <li class="header" style={{ paddingLeft: "0px" }}>
               <h5>OPERATIONS</h5>
@@ -52,18 +49,6 @@ class AdminHome extends React.Component {
           <div class="container-fluid">
             <div class="jumbotron jj">
               <h1>ADMIN PANNEL</h1>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
-                quibusdam dolores aperiam eaque porro odit maxime mollitia illum
-                voluptate. Accusamus placeat alias vitae esse fugit ipsam quas,
-                sit nobis quaerat!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
-                quas dicta voluptas molestiae repudiandae dolorem. Dolor facere
-                optio esse dolores consectetur dolore, velit eaque, repudiandae
-                voluptatibus odio animi vel consequuntur!
-              </p>
               <p>
                 <Link
                   to="/"
