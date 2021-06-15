@@ -47,8 +47,10 @@ import UpdatePayment from "./component/updatePayment";
 
 //import ShippingAdressScreen from "./screens/ShippingAdressScreen";
 
-import CustomerProfile from './component/customerProfile';
-
+import CustomerProfile from "./component/customerProfile";
+//import Shipping from "./component/shipping";
+import Order from "./component/order";
+import OrderDetail from "./component/OrderDetail";
 
 let emailId;
 if (localStorage.getItem("emailId")) {
@@ -59,105 +61,96 @@ if (localStorage.getItem("emailId")) {
 function App() {
   return (
     <Router>
-      
-      
-        <Switch>
-          <Route path="/" exact component={CustomerHomepage}></Route>
-          <div style={{ margin: "20px" }}>
-            <Route path="/admin-component" component={AdminHome}></Route>
-            <Route path="/customer" component={ListCustomer}></Route>
-            <Route path="/add-customer" component={AddCustomer}></Route>
-            <Route
-              path="/view-customers/:customerId"
-              component={ViewCustomer}
-            ></Route>
-            <Route
-              path="/update-customers/:customerId"
-              component={UpdateCustomer}
-            ></Route>
-            <Route path="/address" component={Address}></Route>
-            <Route path="/add-address" component={AddAddress}></Route>
-            <Route path="/view-address/:id" component={ViewAddress}></Route>
-            <Route path="/update-address/:id" component={UpdateAddress}></Route>
-            <Route path="/feedback" component={Feedback}></Route>
-            <Route path="/add-feedback" component={AddFeedback}></Route>
-            <Route path="/" exact component={Vegetable}></Route>
-            <Route path="/vegetable" exact component={Vegetable}></Route>
-            <Route path = "/profile" component = {CustomerProfile}></Route>
-            <Route
-              path="/Create-vegetable"
-              exact
-              component={Createvegetable}
-            ></Route>
-            <Route
-              path="/update/:vegId"
-              exact
-              component={UpdateVegetable}
-            ></Route>
-            <Route
-              path="/View-Vegetable/:vegId"
-              exact
-              component={ViewVegetable}
-            ></Route>
-            <Route path="/cart/" exact component={Cart}></Route>
-            <Route
-              path="/vegetablepage/"
-              exact
-              component={VegetablePage}
-            ></Route>
-            <Route
-              path="/vegetablehome/"
-              exact
-              component={VegetableHome}
-            ></Route>
+      <Switch>
+        <Route path="/" exact component={CustomerHomepage}></Route>
+        <div style={{ margin: "20px" }}>
+          <Route path="/admin-component" component={AdminHome}></Route>
+          <Route path="/customer" component={ListCustomer}></Route>
+          <Route path="/add-customer" component={AddCustomer}></Route>
+          <Route
+            path="/view-customers/:customerId"
+            component={ViewCustomer}
+          ></Route>
+          <Route
+            path="/update-customers/:customerId"
+            component={UpdateCustomer}
+          ></Route>
+          <Route path="/address" component={Address}></Route>
+          <Route path="/add-address" component={AddAddress}></Route>
+          <Route path="/view-address/:id" component={ViewAddress}></Route>
+          <Route path="/update-address/:id" component={UpdateAddress}></Route>
+          <Route path="/feedback" component={Feedback}></Route>
+          <Route path="/add-feedback" component={AddFeedback}></Route>
+          <Route path="/" exact component={Vegetable}></Route>
+          <Route path="/vegetable" exact component={Vegetable}></Route>
+          <Route path="/profile" component={CustomerProfile}></Route>
+          <Route
+            path="/Create-vegetable"
+            exact
+            component={Createvegetable}
+          ></Route>
+          <Route
+            path="/update/:vegId"
+            exact
+            component={UpdateVegetable}
+          ></Route>
+          <Route
+            path="/View-Vegetable/:vegId"
+            exact
+            component={ViewVegetable}
+          ></Route>
+          <Route path="/cart/" exact component={Cart}></Route>
+          <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
+          <Route path="/vegetablehome/" exact component={VegetableHome}></Route>
 
-            <Route exact path="/login" exact component={Login} />
-            <Route exact path="/register" exact component={Register} />
-            <Route path="/counter" exact component={Counter}></Route>
-            <Route path="/" exact component={Billing}></Route>
-            <Route
-              path="/view-bills/:billingId"
-              exact
-              component={ViewBilling}
-            ></Route>
-            <Route path="/add-bills" exact component={CreateBilling}></Route>
-            <Route
-              path="/update-bills/:billingId"
-              exact
-              component={UpdateBilling}
-            ></Route>
+          <Route exact path="/login" exact component={Login} />
+          <Route exact path="/register" exact component={Register} />
+          <Route path="/counter" exact component={Counter}></Route>
+          <Route path="/" exact component={Billing}></Route>
+          <Route
+            path="/view-bills/:billingId"
+            exact
+            component={ViewBilling}
+          ></Route>
+          <Route path="/add-bills" exact component={CreateBilling}></Route>
+          <Route
+            path="/update-bills/:billingId"
+            exact
+            component={UpdateBilling}
+          ></Route>
 
-            <Route path="/orderdets" exact component={Orderdets}></Route>
-            <Route path="/" exact component={Orderdets}></Route>
-            <Route
-              path="/view-order/:orderNo"
-              exact
-              component={ViewOrder}
-            ></Route>
-            <Route path="/add-order" exact component={CreateOrder}></Route>
-            <Route
-              path="/update-order/:orderNo"
-              exact
-              component={UpdateOrder}
-            ></Route>
+          <Route path="/orderdets" exact component={Orderdets}></Route>
+          <Route path="/" exact component={Orderdets}></Route>
+          <Route
+            path="/view-order/:orderNo"
+            exact
+            component={ViewOrder}
+          ></Route>
+          <Route path="/add-order" exact component={CreateOrder}></Route>
+          <Route
+            path="/update-order/:orderNo"
+            exact
+            component={UpdateOrder}
+          ></Route>
 
-            <Route path="/payments" exact component={Payments}></Route>
-            <Route path="/" exact component={Payments}></Route>
-            <Route
-              path="/view-payment/:paymentId"
-              exact
-              component={ViewPayment}
-            ></Route>
-            <Route path="/add-payment" exact component={CreatePayment}></Route>
-            <Route
-              path="/update-payment/:paymentId"
-              exact
-              component={UpdatePayment}
-            ></Route>
-          </div>
-        </Switch>
-      
-      
+          <Route path="/payments" exact component={Payments}></Route>
+          <Route path="/" exact component={Payments}></Route>
+          <Route
+            path="/view-payment/:paymentId"
+            exact
+            component={ViewPayment}
+          ></Route>
+          <Route path="/add-payment" exact component={CreatePayment}></Route>
+          <Route
+            path="/update-payment/:paymentId"
+            exact
+            component={UpdatePayment}
+          ></Route>
+
+          <Route path="/checkout" exact component={Order}></Route>
+          <Route path="/myorders" exact component={OrderDetail}></Route>
+        </div>
+      </Switch>
     </Router>
   );
 }
