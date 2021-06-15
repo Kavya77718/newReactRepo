@@ -11,7 +11,9 @@ function Order() {
   const [totalAmount, setTotalAmount] = useState("");
   const setTotal = async () => {
     const res = await axios.get(
-      `http://localhost:8080/order/${encodeURI(localStorage.getItem("userId"))}`
+      `http://localhost:8081/gettotal/cart/${encodeURI(
+        localStorage.getItem("userId")
+      )}`
     );
     setTotalAmount(res.data);
   };
@@ -100,7 +102,7 @@ function Order() {
 
         <h4>total cost for your order Rs.{totalAmount}</h4>
         <Button variant="primary" type="submit">
-          Submit
+          Continue
         </Button>
       </Form>
     </div>

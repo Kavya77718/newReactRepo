@@ -10,6 +10,9 @@ class OrderService {
   async createOrder(order) {
     return await axios.post(ORDER_API_BASE_URL + "/order", order);
   }
+  async getOrderById(orderNo) {
+    return await axios.get(ORDER_API_BASE_URL + "/order/id/" + orderNo);
+  }
 
   async updateOrder(orderid, order) {
     return await axios.put(ORDER_API_BASE_URL + "/order/" + orderid, order);
