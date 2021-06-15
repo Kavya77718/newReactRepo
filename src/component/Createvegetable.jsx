@@ -10,18 +10,20 @@ class Createvegetable extends Component{
             name :'',
             price:'',
             type:'',
-            quantity:''
+            quantity:'',
+            description: ''
         }
         this.changevegIdHandler=this.changevegIdHandler.bind(this);
         this.changenameHandler=this.changenameHandler.bind(this);
         this.changepriceHandler=this.changepriceHandler.bind(this);
         this.changetypeHandler=this.changetypeHandler.bind(this);
         this.changequantityHandler=this.changequantityHandler.bind(this);
+        this.changedescriptionHandler=this.changedescriptionHandler.bind(this);
         this.saveVegetable=this.saveVegetable.bind(this);
     }
     saveVegetable= (e) =>{
         e.preventDefault();
-        let vegetable ={vegId:this.state.vegId,name:this.state.name,price:this.state.price,type:this.state.type,quantity:this.state.quantity};
+        let vegetable ={vegId:this.state.vegId,name:this.state.name,price:this.state.price,type:this.state.type,quantity:this.state.quantity,description:this.state.description};
         console.log('vegetable => '+JSON.stringify(vegetable));
 
         VegetableService.Createvegetable(vegetable).then(res => {
@@ -42,6 +44,9 @@ class Createvegetable extends Component{
     }
     changequantityHandler =(event) => {
         this.setState({quantity:event.target.value});
+    }
+    changedescriptionHandler =(event) => {
+        this.setState({description:event.target.value});
     }
     cancel(){
         this.props.history.push('/vegetable');
@@ -74,6 +79,11 @@ render(){
                                   <div className="form-group">
                                       <label>Quantity</label>
                                       <input placeholder="Quantity" name="quantity" className="form-control" value={this.state.quantity} onChange={this.changequantityHandler}/>
+                                  </div>
+
+                                  <div className="form-group">
+                                      <label>Description</label>
+                                      <input placeholder="Description" name="description" className="form-control" value={this.state.description} onChange={this.changedescriptionHandler}/>
                                   </div>
                                   <button className="btn btn-success" onClick={this.saveVegetable}>Save</button>
                                   <button className="btn btn-danger"  onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>

@@ -44,6 +44,10 @@ class ViewVegetable extends Component {
                         <label><b>Quantity: </b></label>
                         <div>{this.state.vegetable.quantity}</div>
                     </div>
+                    <div className ="row">
+                        <label><b>Description: </b></label>
+                        <div>{this.state.vegetable.description}</div>
+                    </div>
                     <div>
                     <button className="btn btn-dark"  onClick={this.back.bind(this)} style={{marginLeft:"200px"}}>Back</button>
                     </div>

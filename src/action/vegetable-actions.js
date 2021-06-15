@@ -6,9 +6,9 @@ export const setvegetables = (vegetables) => {
   };
 };
 
-export const selectedvegetable = (vegetable) => {
+export const selectedvegetable = (veg) => {
   return {
     type: actionTypes.SELECTED_VEGETABLE,
-    payload: vegetable,
+    payload: veg,
   };
 };

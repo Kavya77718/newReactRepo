@@ -3,7 +3,12 @@ import axios from 'axios'
 import { connect } from "react-redux";
 import {  useHistory } from "react-router";
 import { loginUser } from "../action/userActions";
+
+import { logoutUser } from "../action/userActions";
+import navbar from "../component/HomePage/navbar";
+
 import Navbar from "./Navbar";
+
 const { useState } = React;
 
 function Login({user,loginUser}) {
@@ -16,28 +21,32 @@ const history= useHistory();
   const submitHandler = async(e) => {
     e.preventDefault();
     // loginUser(loginDetails);
+    
  loginUser(loginDetails)
  history.push("/");
 
   };
   return (
     <div class="body">
+
+      <navbar/>
+
       <Navbar/>
+
     <div className="mt-5 ">
       <form onSubmit={submitHandler} style={{ width: "480px", margin: "auto" }}>
       <h2>Email Id</h2>
         <div>
-          <label for="emailId" className="sr-only">
-          emailId
+        <label for="emailId" className="form-label">
+          {" "}
+            EmailId
           </label>
           <input
-            type="username"
+            type="emailId"
             class="form-control"
             id="emailId"
             placeholder="emailId"
-            onChange={(e) =>
-              setLoginDetails({ ...loginDetails, emailId: e.target.value })
-            }
+            onChange={(e) => setLoginDetails({...loginDetails, emailId: e.target.value })}
             value={loginDetails.emailId}
           />
         </div>
