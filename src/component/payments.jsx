@@ -13,11 +13,12 @@ class Payments extends Component {
       search: "",
       payment: {
         paymentId: "",
-        paymentType: "",
+        transactionMode: "",
         itemTotal: "",
         shippingFee: "",
         totalPrice: "",
         transactionStatus: "",
+        transactionDate: "",
       },
     };
     this.updatePayment = this.updatePayment.bind(this);
@@ -54,16 +55,6 @@ class Payments extends Component {
     });
   }
 
-  paymentById = () => {
-    let payments = [];
-    PaymentService.getPaymentById(this.state.search).then((res) => {
-      console.log("**data: ", res.data);
-      payments = res.data;
-    });
-    this.setState({ payments });
-    console.log("** paymentById" + this.state.payment);
-  };
-
   handleSort = (path) => {
     console.log(path);
     this.setState({ sortColumn: { path, order: "asc" } });
@@ -90,7 +81,7 @@ class Payments extends Component {
     console.log("Sorted..", sorted);
     return (
       <div>
-        <div className="w-80 mt-5 mx-auto">
+        <div className="w-10 mt-10 mx-auto">
           <div className="d-flex justify-content-between">
             <div className="row">
               <button className="btn btn-info" onClick={this.addPayment}>
@@ -112,11 +103,12 @@ class Payments extends Component {
             <thead>
               <tr>
                 <th>paymentId</th>
-                <th>paymentType</th>
+                <th>PaymentType</th>
                 <th>itemTotal</th>
                 <th>shippingFee</th>
                 <th>totalPrice</th>
                 <th>transactionStatus</th>
+                <th>transactionDate</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -124,11 +116,12 @@ class Payments extends Component {
               {this.state.payments.map((payment) => (
                 <tr key={payment.paymentId}>
                   <td>{payment.paymentId}</td>
-                  <td>{payment.paymentType}</td>
+                  <td>{payment.transactionMode}</td>
                   <td>{payment.itemTotal}</td>
                   <td>{payment.shippingFee}</td>
                   <td>{payment.totalPrice}</td>
                   <td>{payment.transactionStatus}</td>
+                  <td>{payment.transactionDate}</td>
                   <td>
                     <button
                       onClick={() => this.deletePayment(payment.paymentId)}

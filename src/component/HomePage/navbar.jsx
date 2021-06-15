@@ -3,6 +3,9 @@ import { NavLink, Route } from 'react-router-dom';
 import { connect, useSelector } from "react-redux";
 import { logoutUser } from "../../action/userActions";
 
+import { connect, useSelector } from "react-redux";
+import { logoutUser } from "../../action/userActions";
+
 import {
   Key,
   PencilSquare,
@@ -21,7 +24,22 @@ import { Link } from "react-router-dom";
 
 export function Navbar() { 
 
+<<<<<<< HEAD
   return (
+=======
+function Navbar({ logoutUser }) {
+  const userIsLoggedIn = useSelector((state) => state.user.loggedIn);
+  let user = useSelector((state) => state.user.user);
+
+  // let emailId =  useSelector((state)=>state.user.user.emailId)
+
+  const handleSubmit = () => {
+    let emailId = user.emailId;
+    logoutUser(emailId);
+  };
+
+    return (
+>>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
       <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" to="#">Veggies</a>
@@ -29,6 +47,7 @@ export function Navbar() {
             <span class="navbar-toggler-icon"></span>
         </button>
 
+<<<<<<< HEAD
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -57,3 +76,103 @@ export function Navbar() {
         </div>
   );
 }
+=======
+                <div className="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
+                  <div className="d-flex justify-content-end">
+                    <button className="btt">
+                      {" "}
+                      <div className="blink_me">Veggies</div>
+                    </button>
+                    <div className="dropdown drop">
+                      <button
+                        className="btn dropdown-toggle "
+                        type="button"
+                        // id="dropdownMenu2"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                       <List/>
+                      </button>
+                      <div
+                        className="dropdown-menu"
+                        aria-labelledby="dropdownMenu2"
+                      >
+                        <button className="dropdown-item indrop" type="button">
+                          Home
+                        </button>
+                        <button className="dropdown-item indrop" type="button">
+                          Category
+                        </button>
+                        <Link to="/profile" style={{ textDecoration: "none" }}>
+                        <button className="dropdown-item indrop" type="button">
+                          Profile
+                        </button>
+                        </Link>
+                      </div>
+                    </div>
+                    <Link to="/cart" style={{ textDecoration: "none" }}>
+                      <a
+                        className="nav-link nav-user-img cartLog"
+                        href="#"
+                        data-toggle="modal"
+                        data-target="#login-modal"
+                        data-abc="true"
+                      >
+                        <span className="login">
+                          <Cart />
+                          &nbsp; Cart
+                        </span>
+                      </a>
+                    </Link>
+                    <div style={{ display: "flex" }}>
+        <Link
+          style={{ display: userIsLoggedIn ? "none" : "block" }}
+          className="nav-link"
+          to="/login"
+        >
+          <h4>Login</h4>
+        </Link>
+        <Link
+          style={{ display: userIsLoggedIn ? "none" : "block" }}
+          className="nav-link"
+          to="/register"
+        >
+          <h4>Register</h4>
+        </Link>
+        <Link
+          style={{ display: userIsLoggedIn ? "none" : "block" }}
+          className="text"
+        >
+          <h4>{user && user.customerName}</h4>
+        </Link>
+        <Link
+          onClick={handleSubmit}
+          style={{ display: userIsLoggedIn ? "block" : "none" }}
+          className="nav-link"
+          to="/"
+        >
+          logout
+        </Link>
+      </div>         
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </header>
+      </div>
+    );
+  }
+
+  const mapStateToProps = (state) => {
+    return {
+      user: state.user.user,
+      loggedIn: state.user.loggedIn,
+    };
+  
+};
+
+
+export default connect(mapStateToProps, { logoutUser })(Navbar);
+>>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378

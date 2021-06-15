@@ -2,9 +2,9 @@ import axios from "axios";
 import React from "react";
 import {Link,useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {registerUser} from '../action/userActions'
+import {registerUser,logoutUser, loginUser} from '../action/userActions'
 const { useState } = React;
-function Register({registerUser}) {
+function Register({registerUser, loginUser}) {
   const history = useHistory();
   const [user, setUser] = useState({
     name: "",
@@ -16,7 +16,7 @@ function Register({registerUser}) {
     e.preventDefault();
     console.log(user);
     registerUser(user)
-    history.push("/")
+    history.push("/login")
   };
   // const postCustomer = async(user)=>{
   //   const res= await axios.post("http://localhost:8080/customer",user)
@@ -99,4 +99,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps,{registerUser}) (Register);
+export default connect(mapStateToProps,{registerUser,loginUser}) (Register);

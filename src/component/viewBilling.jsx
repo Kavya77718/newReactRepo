@@ -1,54 +1,58 @@
-
-import React, { Component } from 'react';
-import BillingService from '../services/billingService';
-
+import React, { Component } from "react";
+import BillingService from "../services/billingService";
 
 class ViewBilling extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            billingId: this.props.match.params.billingId,
-            bill:{}
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      billingId: this.props.match.params.billingId,
+      bill: {},
+    };
+  }
 
-    componentDidMount(){
-        BillingService.getBillById(this.state.billingId).then( res =>{
-            this.setState({bill: res.data});
-        })
-    }
-    render() { 
-        return ( 
-            <div className="card col-md-6 offset-md-3">
-                <h3 className ="text-center"> View Billing Details</h3>
-                <div className="card bg-info text-dark">
-                <div className ="card-body">
-                <h1>{this.props.match.params.billingId}</h1>
-                    <div className ="row">
-                        <label><b>Billing Id: </b></label>
-                        <div>{this.state.bill.billingId}</div>
-                    </div>
-                    <div className ="row">
-                        <label><b>Transaction Mode:</b> </label>
-                        <div>{this.state.bill.transactionMode}</div>
-                    </div>
-                    <div className ="row">
-                        <label><b>Transaction Date: </b></label>
-                        <div>{this.state.bill.transactionDate}</div>
-                    </div>
-                    <div className ="row">
-                        <label><b>Transaction Status: </b></label>
-                        <div>{this.state.bill.transactionStatus}</div>
-                    </div>
-                        
-                </div>
-
-                </div>
+  componentDidMount() {
+    BillingService.getBillById(this.state.billingId).then((res) => {
+      this.setState({ bill: res.data });
+    });
+  }
+  render() {
+    return (
+      <div className="card col-md-6 offset-md-3">
+        <h3 className="text-center"> View Billing Details</h3>
+        <div className="card bg-info text-dark">
+          <div className="card-body">
+            <h1>{this.props.match.params.billingId}</h1>
+            <div className="row">
+              <label>
+                <b>Billing Id: </b>
+              </label>
+              <div>{this.state.bill.billingId}</div>
             </div>
-         )
-    }
+            <div className="row">
+              <label>
+                <b>Transaction Mode:</b>{" "}
+              </label>
+              <div>{this.state.bill.transactionMode}</div>
+            </div>
+            <div className="row">
+              <label>
+                <b>Transaction Date: </b>
+              </label>
+              <div>{this.state.bill.transactionDate}</div>
+            </div>
+            <div className="row">
+              <label>
+                <b>Transaction Status: </b>
+              </label>
+              <div>{this.state.bill.transactionStatus}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
- 
+
 export default ViewBilling;
 /*import React, { Component } from "react";
 import BillingService from '../Service/billingService';12a

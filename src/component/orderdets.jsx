@@ -52,16 +52,6 @@ class Orderdets extends Component {
     });
   }
 
-  orderById = () => {
-    let orderdets = [];
-    OrderService.getOrderById(this.state.search).then((res) => {
-      console.log("**data: ", res.data);
-      orderdets = res.data;
-    });
-    this.setState({ orderdets });
-    console.log("** orderByOrder" + this.state.orderdet);
-  };
-
   handleSort = (path) => {
     console.log(path);
     this.setState({ sortColumn: { path, order: "asc" } });
