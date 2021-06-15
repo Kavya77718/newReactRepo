@@ -51,7 +51,14 @@ class Orderdets extends Component {
       this.setState({ orderdets: res.data });
     });
   }
-
+  getOrderById = () => {
+    let orderdets = [];
+    OrderService.getOrderById(this.state.search).then((res) => {
+      orderdets = res.data;
+      this.setState({ orderdets });
+      console.log(this.state.orderdets);
+    });
+  };
   handleSort = (path) => {
     console.log(path);
     this.setState({ sortColumn: { path, order: "asc" } });
@@ -85,15 +92,6 @@ class Orderdets extends Component {
                 Add Order
               </button>
             </div>
-            <form class="form-inline my-2 my-lg-0">
-              <input
-                className="form-control ml-auto"
-                type="search"
-                placeholder="Search by Id"
-                aria-label="Search"
-                onChange={this.onChange}
-              />
-            </form>
           </div>
 
           <table className="table table-striped table-bordered">

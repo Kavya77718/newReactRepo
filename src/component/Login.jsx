@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import axios from 'axios'
 import { connect } from "react-redux";
 import {  useHistory } from "react-router";
 import { loginUser } from "../action/userActions";
@@ -17,6 +17,14 @@ const history= useHistory();
   const submitHandler = async(e) => {
     e.preventDefault();
     // loginUser(loginDetails);
+    if(loginDetails.emailId==="admin123@gmail.com" && loginDetails.password==="admin"){
+      history.push(`/admin-components`);
+    }
+
+else{
+  
+}
+
  loginUser(loginDetails)
  history.push("/");
 
