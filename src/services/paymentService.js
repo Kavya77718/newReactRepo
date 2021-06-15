@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const PAYMENT_API_BASE_URL = "http://localhost:8081";
+const PAYMENT_API_BASE_URL = "http://localhost:8080";
 
 class PaymentService {
   async getAllPayments() {

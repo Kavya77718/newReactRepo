@@ -32,20 +32,22 @@ class Billing extends Component {
         });
     }
 
+    getBillById = () => {
+        let bills = [];
+        BillingService.getBillById(this.state.search).then((res) => {
+          bills = res.data;
+          this.setState({ bills });
+          console.log(this.state.bills);
+        });
+      };
+
     componentDidMount(){
         BillingService.getAllBills().then((res) => {
         this.setState({bills: res.data});
         });
     }
 
-    getBillById = () =>{
-        let bills=[];
-        BillingService.getBillById(this.state.search).then((res)=>{
-            bills= res.data;
-            this.setState({bills});
-            console.log(this.state.bills);
-        });
-    }
+
 
     onChange = (event) => {
         console.log(event.target.value);
@@ -55,24 +57,6 @@ class Billing extends Component {
     render() { 
         return ( 
             <div>
-                <form className="form-inline my-2 my-lg-0">
-              <input
-                className="form-control ml-auto"
-                type="search"
-                name="id"
-                placeholder="Search by id"
-                aria-label="Search"
-                onChange={this.onChange}
-              />
-              <button
-                className="btn btn-outline-success my-2 my-sm-0"
-                type="button"
-                onClick={this.getBillById}
-              >
-      
- Search
-              </button>
-            </form>
              <h2 className="text-center">Bill Lists</h2>
             <div className="row">
                 <button className="btn btn-info" onClick={this.addBill}>Add Billing</button>

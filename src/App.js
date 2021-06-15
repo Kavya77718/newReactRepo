@@ -32,7 +32,8 @@ import Counter from "./component/counter";
 import Login from "./component/Login";
 import Register from "./component/Register";
 //import BillingForm from './component/billingForm';
-import Navbar from "./component/Navbar";
+import Order from "./component/order";
+import OrderDetail from "./component/OrderDetail";
 
 import Orderdets from "./component/orderdets";
 import ViewOrder from "./component/viewOrder";
@@ -106,7 +107,7 @@ function App() {
             <Route exact path="/login" exact component={Login} />
             <Route exact path="/register" exact component={Register} />
             <Route path="/counter" exact component={Counter}></Route>
-            <Route path="/" exact component={Billing}></Route>
+            <Route path="/bill" exact component={Billing}></Route>
             <Route
               path="/view-bills/:billingId"
               exact
@@ -146,6 +147,8 @@ function App() {
               exact
               component={UpdatePayment}
             ></Route>
+            <Route path="/checkout" exact component={Order}></Route>
+            <Route path="/myorders" exact component={OrderDetail}></Route>
           </div>
         </Switch>
       </div>

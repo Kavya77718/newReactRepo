@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {  useHistory } from "react-router";
 import { loginUser } from "../action/userActions";
 import { logoutUser } from "../action/userActions";
-import navbar from "../component/HomePage/navbar";
+
 const { useState } = React;
 
 function Login({user,loginUser}) {
@@ -17,7 +17,6 @@ const history= useHistory();
   const submitHandler = async(e) => {
     e.preventDefault();
     // loginUser(loginDetails);
-    
  loginUser(loginDetails)
  history.push("/");
 
@@ -29,10 +28,6 @@ const history= useHistory();
       <form onSubmit={submitHandler} style={{ width: "480px", margin: "auto" }}>
       <h2>Email Id</h2>
         <div>
-        <label for="emailId" className="form-label">
-          {" "}
-            EmailId
-          </label>
           <input
             type="emailId"
             class="form-control"

@@ -14,7 +14,7 @@ function VegetableHome() {
   const dispatch = useDispatch();
 
   const getVegList = async () => {
-    const { data } = await axios.get("http://localhost:8082/api/vegetable/view");
+    const { data } = await axios.get("http://localhost:8080/api/vegetable/view");
     console.log(data)
 
     dispatch(setvegetables(data));
