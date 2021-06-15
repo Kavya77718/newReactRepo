@@ -21,19 +21,12 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-=======
 
-// import "./script";
-// import  from "react-bootstrap";
-// import { Navbar } from "react-bootstrap";
->>>>>>> e3c6ca21d88e046b8bd821a844f0fa20201a38b8
 
 export function Navbar() { 
 
-<<<<<<< HEAD
+
   return (
-=======
 function Navbar({ logoutUser }) {
   const userIsLoggedIn = useSelector((state) => state.user.loggedIn);
   let user = useSelector((state) => state.user.user);
@@ -97,18 +90,18 @@ function Navbar({ logoutUser }) {
                         <Search />
                         {/* </i>{" "} */}
                       </button>{" "}
-=======
+
     return (
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
+
       <div>
-<<<<<<< HEAD
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" to="#">Veggies</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-<<<<<<< HEAD
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -137,13 +130,13 @@ function Navbar({ logoutUser }) {
         </div>
   );
 }
-=======
+
                 <div className="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                   <div className="d-flex justify-content-end">
                     <button className="btt">
                       {" "}
                       <div className="blink_me">Veggies</div>
-=======
+
         <header className="section-header hh">
           <section className="header-main border-bottom sec">
             <div className="container-fluid">
@@ -209,7 +202,7 @@ function Navbar({ logoutUser }) {
                       aria-expanded="false"
                     >
                       <List />
->>>>>>> e3c6ca21d88e046b8bd821a844f0fa20201a38b8
+
                     </button>
 
                     <div
@@ -380,7 +373,4 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { logoutUser })(Navbar);
-<<<<<<< HEAD
->>>>>>> bffb5c79b9c235cd9d8f9af7aceaa9dd85c4f378
-=======
->>>>>>> e3c6ca21d88e046b8bd821a844f0fa20201a38b8
+
