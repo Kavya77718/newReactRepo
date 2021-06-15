@@ -1,12 +1,5 @@
-
 import React, { Component } from "react";
 import BillingService from "../services/billingService";
-
-
-import React, { Component } from 'react';
-import BillingService from '../services/billingService';
-
-
 
 class ViewBilling extends Component {
   constructor(props) {
