@@ -5,7 +5,7 @@ export const loginUser = (loginDetails) => async (dispatch) => {
   try {
    
     const res = await axios.post(
-      "http://localhost:8080/customer/login",
+      "http://localhost:8081/customer/login",
       loginDetails
     );
     console.log("response of dispatch", res);
@@ -21,7 +21,11 @@ export const loginUser = (loginDetails) => async (dispatch) => {
 export const registerUser = (user) => async (dispatch) => {
   try {
 
+    const res = await axios.post("http://localhost:8081/customer", user);
+
+
     const res = await axios.post("http://localhost:8080/customer", user);
+
     console.log("response of dispatch", res);
     dispatch({
       type: actionTypes.USER_REGISTER,
@@ -35,10 +39,17 @@ export const registerUser = (user) => async (dispatch) => {
 
 export const logoutUser = (emailId) => async (dispatch) => {
   try {
+
+    const body = JSON.stringify(emailId);
+    console.log(body);
+    const url = `http://localhost:8081/customer/logout/${encodeURI(emailId)}`;
+
+
     const body = JSON.stringify(emailId)
     console.log(body)
      const url = `http://localhost:8080/customer/logout/${encodeURI(emailId)}`
     
+
     console.log(url);
 
    const res= getPost(url).then((res)=>{
@@ -55,10 +66,17 @@ export const logoutUser = (emailId) => async (dispatch) => {
   }
 };
 export const loadUser = (emailId) => async (dispatch) => {
+
+  try {
+    const url = `http://localhost:8081/customer/getuser/${encodeURI(emailId)}`;
+    const res = await getCust(url);
+    console.log("res loaduser", res);
+
   try{
     const url = `http://localhost:8080/customer/getuser/${encodeURI(emailId)}`
     const res= await getCust(url);
     console.log("res loaduser",res);
+
     dispatch({
       type: actionTypes.LOAD_USER,
       payload: res.data,

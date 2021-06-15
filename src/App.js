@@ -41,6 +41,10 @@ import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
 
+import VegetableListing from "./component/vegetableListing";
+import VegetableDetail from "./component/vegetableDetail";
+
+
 
 //import ShippingAdressScreen from "./screens/ShippingAdressScreen";
 
@@ -58,14 +62,10 @@ if (localStorage.getItem("emailId")) {
   console.log(emailId);
 }
 
-
 function App() {
 
   return (
-
-
     <Router>
-
       <Switch>
         <Route path="/" exact component={CustomerHomepage}></Route>
         <div style={{ margin: "20px" }}>
@@ -124,9 +124,6 @@ function App() {
             component={UpdateBilling}
           ></Route>
 
-      <div className="container">
-
-        <Switch>
           <Route path="/" exact component={CustomerHomepage}></Route>
           <div style={{ margin: "20px" }}>
             <Route path="/admin-component" component={AdminHome}></Route>
@@ -148,11 +145,23 @@ function App() {
             <Route path="/add-feedback" component={AddFeedback}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
 
-            <Route path="/Create-vegetable" exact component={Createvegetable}></Route>
-            <Route path="/update/:vegId" exact component={UpdateVegetable}></Route>
-            <Route path="/View-Vegetable/:vegId" exact component={ViewVegetable}></Route>
+            <Route
+              path="/Create-vegetable"
+              exact
+              component={Createvegetable}
+            ></Route>
+            <Route
+              path="/update/:vegId"
+              exact
+              component={UpdateVegetable}
+            ></Route>
+            <Route
+              path="/View-Vegetable/:vegId"
+              exact
+              component={ViewVegetable}
+            ></Route>
 
-            <Route path = "/profile" component = {CustomerProfile}></Route>
+            <Route path="/profile" component={CustomerProfile}></Route>
             <Route
               path="/Create-vegetable"
               exact
@@ -194,7 +203,6 @@ function App() {
               exact
               component={VegetableHome}
             ></Route>
-            
 
             <Route path="/vegetablepage/" exact component={VegetablePage}></Route>
             <Route path="/vegetablehome/"exact component={VegetableHome}></Route>
@@ -226,13 +234,30 @@ function App() {
             exact
             component={UpdatePayment}
           ></Route>
+            <Route
+              path="/vegetablepage/"
+              exact
+              component={VegetablePage}
+            ></Route>
+            <Route
+              path="/vegetablehome/"
+              exact
+              component={VegetableHome}
+            ></Route>
 
-
-          <Route path="/checkout" exact component={Order}></Route>
-          <Route path="/myorders" exact component={OrderDetail}></Route>
-          <Route path="/paymentpage" exact component={PaymentPage}></Route>
-        </div>
-      </Switch>
+            <Route path="/orderdets" exact component={Orderdets}></Route>
+            <Route path="/" exact component={Orderdets}></Route>
+            <Route
+              path="/view-order/:orderNo"
+              exact
+              component={ViewOrder}
+            ></Route>
+            <Route path="/add-order" exact component={CreateOrder}></Route>
+            <Route
+              path="/update-order/:orderNo"
+              exact
+              component={UpdateOrder}
+            ></Route>
 
             <Route path="/payments" exact component={Payments}></Route>
             <Route path="/" exact component={Payments}></Route>
@@ -247,19 +272,26 @@ function App() {
               exact
               component={UpdatePayment}
             ></Route>
-            <Route path="/veglisting" exact component={VegetableListing}></Route>
-            <Route path="/vegetable/:vegId" exact component={VegetableDetail}></Route>
-          </div>
-        </Switch>
 
-      </div>
-    
+            <Route path="/checkout" exact component={Order}></Route>
+            <Route path="/myorders" exact component={OrderDetail}></Route>
+            <Route path="/paymentpage" exact component={PaymentPage}></Route>
+
+            <Route
+              path="/veglisting"
+              exact
+              component={VegetableListing}
+            ></Route>
+            <Route
+              path="/vegetable/:vegId"
+              exact
+              component={VegetableDetail}
+            ></Route>
+          </div>
+        </div>
+      </Switch>
     </Router>
   );
 }
 
 export default App;
-
-
-
-
