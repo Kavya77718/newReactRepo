@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const loginUser = (loginDetails) => async (dispatch) => {
   try {
+   
     const res = await axios.post(
       "http://localhost:8080/customer/login",
       loginDetails
@@ -19,6 +20,7 @@ export const loginUser = (loginDetails) => async (dispatch) => {
 
 export const registerUser = (user) => async (dispatch) => {
   try {
+
     const res = await axios.post("http://localhost:8080/customer", user);
     console.log("response of dispatch", res);
     dispatch({
@@ -30,21 +32,20 @@ export const registerUser = (user) => async (dispatch) => {
   }
 };
 
+
 export const logoutUser = (emailId) => async (dispatch) => {
   try {
-    const body = JSON.stringify(emailId);
-    console.log(body);
-    const url = `http://localhost:8080/customer/logout/${encodeURI(emailId)}`;
-
+    const body = JSON.stringify(emailId)
+    console.log(body)
+     const url = `http://localhost:8080/customer/logout/${encodeURI(emailId)}`
+    
     console.log(url);
 
-    const res = getPost(url)
-      .then((res) => {
-        console.log("response of dispatch", res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+   const res= getPost(url).then((res)=>{
+      console.log("response of dispatch", res);
+    }).catch((err)=>{
+      console.error(err);
+    })
     dispatch({
       type: actionTypes.USER_LOGOUT,
       payload: res.data,
@@ -54,37 +55,26 @@ export const logoutUser = (emailId) => async (dispatch) => {
   }
 };
 export const loadUser = (emailId) => async (dispatch) => {
-
   try{
     const url = `http://localhost:8080/customer/getuser/${encodeURI(emailId)}`
     const res= await getCust(url);
     console.log("res loaduser",res);
-
-  try {
-    const url = `http://localhost:8080/customer/logout/${encodeURI(emailId)}`;
-    const res = getCust(url)
-      .then((response) => {
-        console.log("response of dispatch", response);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-
     dispatch({
       type: actionTypes.LOAD_USER,
       payload: res.data,
     });
-  } catch (err) {
+  }catch(err){
     dispatch({ type: actionTypes.USER_REGISTER_FAIL, payload: err });
   }
-};
-export const getPost = async (funcParamURL) => {
-  console.log(funcParamURL);
-  const res = await axios.post(`${funcParamURL}`);
-  return res;
-};
-export const getCust = async (funcParamURL) => {
-  console.log(funcParamURL);
-  const res = await axios.get(`${funcParamURL}`);
-  return res;
-};
+ 
+}
+export const getPost = async(funcParamURL) => {
+  console.log(funcParamURL)
+  const res= await axios.post(`${funcParamURL}`);
+   return res;
+ }
+ export const getCust = async(funcParamURL) => {
+  console.log(funcParamURL)
+  const res= await axios.get(`${funcParamURL}`);
+   return res;
+ }
