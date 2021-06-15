@@ -1,5 +1,5 @@
 import React from "react";
-
+import Navbar from "../component/HomePage/navbar";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setProducts } from "../action/product_Actions";
@@ -50,7 +50,12 @@ function VegetableListing({ addToCart }) {
   console.log(products);
 
   return (
+    <div>
+    <Navbar/>
+    <br/>
+    <br/>
    <VegetableComponent />
+   </div>
   );
 }
 const mapStateToProps = (state) => {

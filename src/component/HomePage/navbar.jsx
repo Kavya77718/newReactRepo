@@ -54,32 +54,7 @@ function Navbar({ logoutUser }) {
                     </a>{" "}
                   </Link>
                 </div>
-                <div className="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
-                  <form action="#" className="search-wrap">
-                    <div className="input-group w-100">
-                      {" "}
-                      <input
-                        type="text"
-                        className="form-control search-form"
-                        style={{ width: "55%;" }}
-                        placeholder="Search"
-                      />
-                      <div className="input-group-append">
-                        {" "}
-                        <button
-                          className="btn btn-primary search-button"
-                          type="submit"
-                        >
-                          {" "}
-                          {/* <i className="fa fa-search"> */}
-                          <Search />
-                          {/* </i>{" "} */}
-                        </button>{" "}
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
+              <br/>
                 <div className="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                   <div className="d-flex justify-content-end">
                     <button className="btt">
@@ -101,12 +76,8 @@ function Navbar({ logoutUser }) {
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenu2"
                       >
-                        <button className="dropdown-item indrop" type="button">
-                          Home
-                        </button>
-                        <button className="dropdown-item indrop" type="button">
-                          Category
-                        </button>
+                        <a href="http://localhost:3000" class="btn btn-info" role="button">Home</a>
+                        <a href="http://localhost:3000/veglisting" class="btn btn-info" role="button">Category</a>
                         <Link to="/profile" style={{ textDecoration: "none" }}>
                         <button className="dropdown-item indrop" type="button">
                           Profile
