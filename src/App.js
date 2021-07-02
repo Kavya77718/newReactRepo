@@ -40,7 +40,15 @@ import CreatePayment from "./component/createPayment";
 import Payments from "./component/payments";
 import UpdatePayment from "./component/updatePayment";
 import Navbar from "./component/HomePage/navbar";
-
+import {loadUser} from './action/userActions'
+import {useEffect} from 'react'
+import store from "./redux/store";
+import CustomerProfile from "./component/customerProfile";
+import AddUserFeedback from "./component/AddUserFeedback";
+import UserFeedback from "./component/userFeedback";
+import VegetableDetail from './component/vegetableDetail';
+import VegetableListing from './component/vegetableListing';
+import PaymentPage from './component/PaymentPage';
 let emailId;
 if (localStorage.getItem("emailId")) {
   emailId = localStorage.getItem("emailId");
@@ -48,6 +56,10 @@ if (localStorage.getItem("emailId")) {
 }
 
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser(emailId))
+    
+  }, [])
   return (
     <Router>
 
@@ -70,10 +82,13 @@ function App() {
             <Route path="/add-address" component={AddAddress}></Route>
             <Route path="/view-address/:id" component={ViewAddress}></Route>
             <Route path="/update-address/:id" component={UpdateAddress}></Route>
-            <Route path="/feedback" component={Feedback}></Route>
+            <Route path="/feedback1" component={Feedback}></Route>
             <Route path="/add-feedback" component={AddFeedback}></Route>
             <Route path="/" exact component={Vegetable}></Route>
             <Route path="/vegetable" exact component={Vegetable}></Route>
+            <Route path="/profile" exact component={CustomerProfile}></Route>
+            <Route path="/userFeedback" exact component={UserFeedback}></Route>
+            <Route path="/feedback" exact component={AddUserFeedback}></Route>
             <Route
               path="/Create-vegetable"
               exact
@@ -134,7 +149,11 @@ function App() {
               component={UpdatePayment}
             ></Route>
             <Route path="/checkout" exact component={Order}></Route>
-            <Route path="/myorders" exact component={OrderDetail}></Route>
+            <Route path="/veglisting" exact component={VegetableListing}></Route>
+            <Route path="/vegetable/:vegId" exact component={VegetableDetail}></Route>
+            <Route path="/checkout" exact component={Order}></Route>
+          <Route path="/myorders" exact component={OrderDetail}></Route>
+          <Route path="/paymentPage" exact component={PaymentPage}></Route>
           </div>
         </Switch>
       

@@ -47,7 +47,7 @@ class Address extends Component {
             <div>
              <h2  className="text-center">Address List</h2>
              <div className="row">
-                 <button className="btn btn-info" onClick={this.addAddress}>Add Address</button>
+                
              </div>
                 <div className="row">
                     <table className="table table-striped table-bordered"> 
@@ -74,7 +74,6 @@ class Address extends Component {
                                     <td>{address.pincode}</td>
                                     <td>
                                         <button onClick = { () => this.deleteAddress(address.id)} className="btn btn-danger">Delete</button>
-                                        <button  style={{marginLeft:"10px"}} onClick = { () => this.updateAddress(address.id)} className="btn btn-warning">Update</button>
                                         <button style={{marginLeft:"10px"}} onClick = { () => this.viewAddress(address.id)} className="btn btn-primary">View</button>
                                     </td>
                                   

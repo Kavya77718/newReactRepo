@@ -28,10 +28,28 @@ function VegetableComponent({addToCart}) {
 
     dispatch(setCart(res.data));
   };
+  const handleAdd = (vegid) => {
+  if (vegid === null) {
+       alert("login");
+     } else {
+      console.log("veg",vegid)
+       addToCart(vegid,id);
+      getCartItems();
+    }
+   };
+ 
+
+//   const getMedList = async () => {
+//     const { data } = await axios.get("http://localhost:8080/medicine/");
+
+//     dispatch(setProducts(data));
+//   };
+
 
   useEffect(() => {
     getCartItems();
   }, []);
+
   console.log(products);
     return (
         <div>
@@ -54,7 +72,7 @@ function VegetableComponent({addToCart}) {
                   </Card.Title>
                   <Card.Text>Rs.{veg.price}</Card.Text>
                   {/* <Card.Text>{med.medicineDescription}</Card.Text> */}
-                  <Button onClick={()=> {addToCart(veg.vegId,id);getCartItems()}} variant="primary">
+                  <Button onClick={()=>handleAdd(veg.vegId) } variant="primary">
                     AddToCart
                   </Button>
                 </Card.Body>

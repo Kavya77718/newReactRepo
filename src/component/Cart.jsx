@@ -5,7 +5,7 @@ import {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import {useSelector,useDispatch, connect} from 'react-redux' 
 import { setCart } from '../action/shopping-actions';
-
+import Nabvar from'../component/HomePage/navbar';
 import {removeFromCart} from '../action/shopping-actions';
 
 function Cart({removeFromCart}) {
@@ -33,10 +33,12 @@ const [cart,setCarti]= useState([]);
    useEffect(() => {
     getCartItems();
      setTotal();
-   }, [cart])
+   }, [totalcost])
   
    if (cart.length!==0) {
       return (
+        <div>
+        <Nabvar/>
         <Container>
         <Row xs={1} md={3} className="g-4">
         {cartItems.length &&
@@ -57,6 +59,7 @@ const [cart,setCarti]= useState([]);
       {totalcost}
       <Button as={Link} to="/order" >checkout</Button>
     </Container>
+    </div>
     )
    
    }

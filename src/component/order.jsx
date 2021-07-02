@@ -8,10 +8,11 @@ import { Row, Col } from "react-bootstrap";
 
 function Order() {
   const history = useHistory();
+
   const [totalAmount, setTotalAmount] = useState("");
   const setTotal = async () => {
     const res = await axios.get(
-      `http://localhost:8081/gettotal/cart/${encodeURI(
+      `http://localhost:8080/gettotal/cart/${encodeURI(
         localStorage.getItem("userId")
       )}`
     );
@@ -34,15 +35,17 @@ function Order() {
     e.preventDefault();
     const res = axios
       .post(
-        `http://localhost:8081/order/${encodeURI(
+        `http://localhost:8081/customer/${encodeURI(
           localStorage.getItem("userId")
-        )}/`,
+        )}/address`,
         address
       )
+
       .then((res) => {
-        if (res.data.status === "Placed") {
-          history.push("/myorders");
-        }
+        console.log(res.data);
+
+        history.push("/paymentpage");
+
         console.log(res);
       })
       .catch((err) => {
@@ -99,8 +102,7 @@ function Order() {
             onChange={(e) => setAddress({ ...address, state: e.target.value })}
           />
         </Form.Group>
-
-        <h4>total cost for your order Rs.{totalAmount}</h4>
+        <h5>total cost for your order Rs.{totalAmount + 50}</h5>
         <Button variant="primary" type="submit">
           Continue
         </Button>

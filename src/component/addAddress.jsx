@@ -74,7 +74,7 @@ class AddAddress extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="caed col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Add Customer</h3>
+                            <h3 className="text-center">Add Address</h3>
                             <div className="card-body">
                                 <form onClick={this.saveAddress}>
                                 

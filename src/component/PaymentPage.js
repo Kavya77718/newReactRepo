@@ -26,8 +26,6 @@ export default class PaymentPage extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-
         <div class="body2">
           <div>
             <div class="container paymentcontainer">

@@ -21,7 +21,7 @@ class AddFeedback extends Component {
         console.log('feedback => '+ JSON.stringify(feedback));
 
         FeedbackService.AddFeedback(feedback).then(res => {
-            this.props.history.push(`/feedback`);
+            this.props.history.push(`/feedback1`);
         });
 
     }

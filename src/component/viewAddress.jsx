@@ -47,7 +47,7 @@ class ViewAddress extends Component {
                         <label><b> Pincode:</b> </label>
                         <div>{this.state.address.pincode}</div>
                     </div>
-                        
+                    <a class="btn btn-primary" href="\address" role="button">Back</a>     
                 </div>
 
                 </div>

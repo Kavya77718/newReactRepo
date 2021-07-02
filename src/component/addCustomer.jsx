@@ -7,7 +7,8 @@ class AddCustomer extends Component {
             customerId: '',
             name: '',
             emailId: '',
-            mobileNumber: ''
+            mobileNumber: '',
+            customerPassword:'',
 
         }
         this.changeNameHandler = this.changeNameHandler.bind(this);
@@ -19,7 +20,7 @@ class AddCustomer extends Component {
 
     saveCustomer = (e) => {
         e.preventDefault();
-        let customer = { customerId: this.state.customerId, name: this.state.name, emailId: this.state.emailId, mobileNumber: this.state.mobileNumber };
+        let customer = { customerId: this.state.customerId, name: this.state.name, emailId: this.state.emailId, mobileNumber: this.state.mobileNumber, customerPassword: this.state.customerPassword };
         console.log('customer => ' + JSON.stringify(customer));
 
         CustomerService.AddCustomer(customer).then(res => {
@@ -44,6 +45,10 @@ class AddCustomer extends Component {
         this.setState({ mobileNumber: event.target.value })
     }
 
+    changecustomerPasswordHandler = (event) => {
+        this.setState({ customerPassword: event.target.value })
+    }
+
     cancel() {
         this.props.history.push('/customer');
     }
@@ -60,20 +65,24 @@ class AddCustomer extends Component {
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
-                                        <label>CustomerId:</label>
-                                        <input placeholder="Id" name="CustomerId" className="form-control" value={this.state.customerId} onChange={this.changeIdHandler} />
+                                       <label>CustomerId:</label>
+                                        <input placeholder="Id" name="CustomerId" className="form-control" value={this.state.customerId} onChange={this.changeIdHandler}  />
                                     </div>
                                     <div className="form-group">
                                         <label>Name:</label>
-                                        <input placeholder="name" name="name" className="form-control" value={this.state.name} onChange={this.changeNameHandler} />
+                                        <input placeholder="name" name="name" className="form-control" value={this.state.name} onChange={this.changeNameHandler} required/>
                                     </div>
                                     <div className="form-group">
                                         <label>Email:</label>
-                                        <input placeholder="Email" name="Email" className="form-control" value={this.state.emailId} onChange={this.changeEmailHandler} />
+                                        <input placeholder="Email" name="Email" className="form-control" value={this.state.emailId} onChange={this.changeEmailHandler} required />
                                     </div>
                                     <div className="form-group">
                                         <label>Mobile Number:</label>
-                                        <input placeholder="Mobile Number" name="Mobile" className="form-control" value={this.state.mobileNumber} onChange={this.changeMobileHandler} />
+                                        <input placeholder="Mobile Number" name="Mobile" className="form-control" value={this.state.mobileNumber} onChange={this.changeMobileHandler} minLength="10" required/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Password:</label>
+                                        <input placeholder="Password" name="Password" className="form-control" value={this.state.customerPassword} onChange={this.changecustomerPasswordHandler} />
                                     </div>
                                     <button className="btn btn-success" onClick={this.saveCustomer}> Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>

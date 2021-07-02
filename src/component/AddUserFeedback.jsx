@@ -13,25 +13,24 @@ import { Form} from "react-bootstrap";
 
 let id = localStorage.getItem('userId');
 function AddUserFeedback() {
-  const[rating, setRating]= useState({
-  }) 
-  const[comments, setComments]= useState({
-  }) 
+ 
+  const[rating, setRating]= useState(0) 
+  const[comments, setComments]= useState("") 
+
+  const postFeedback=async()=>{
+    const response = await axios.post(`http://localhost:8080/feedback/${encodeURI(localStorage.getItem('userId'))}/${encodeURI(rating)}/${encodeURI(comments)}`)
+    
+  }
       
 
-     const handleSubmit=(vegId) => {
-      if (vegId === null) {
-        alert("login");
-      } else {
-        console.log("veg",vegId)
-        const res = axios.post(`http://localhost:8080/feedback/${encodeURI(localStorage.getItem('userId'))}/${encodeURI(localStorage.getItem('vegId'))}/${encodeURI(localStorage.getItem('rating'))}/${encodeURI(localStorage.getItem('comments'))}`)
-        .then(res=>{
-          console.log(res)
-        }).catch(err=>{
-          console.log(err);
-        })
-      }
-        };   
+     const handleSubmit=(e) => {
+       e.preventDefault()
+        postFeedback()    
+        alert("feedback  added")    
+      };
+
+      
+           
        
    
   
@@ -39,24 +38,26 @@ function AddUserFeedback() {
       <div style={{ width: "480px", margin: "auto", marginTop: "50px" }}>
 
         <Form onSubmit={handleSubmit}>
+          <h2>   Give your Feedback</h2>
         <Form.Control
             size="lg"
             style={{ width: "425px" }}
-            placeholder="Rating"
-            onChange={(e) =>
-                setRating({ ...rating, rating: e.target.value })
-                }/>
+            value={rating} 
+            onChange={event=>setRating(event.target.value)} 
+            type="text"/>
                 <Form.Control
             size="lg"
             style={{ width: "425px" }}
-            placeholder="Comments"
-            onChange={(e) =>
-                setComments({ ...comments, comments: e.target.value })
-                }/>
+           value={comments} 
+           onChange={event=>setComments(event.target.value)} 
+           type="text Area"/>
         
-          <Button  variant="primary" type="submit">
+          <Button variant="primary" type="submit" >
             Submit
           </Button> 
+          <Button as={Link} to= "/" variant="primary" type="submit" >
+            Back
+          </Button>
         </Form>
       </div>
     );

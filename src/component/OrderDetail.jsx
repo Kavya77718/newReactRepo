@@ -11,7 +11,7 @@ function OrderDetail() {
   const getOrder = () => {
     const res = axios
       .get(
-        `http://localhost:8081/order/customer/${encodeURI(
+        `http://localhost:8081/orders/customer/${encodeURI(
           localStorage.getItem("userId")
         )}`
       )

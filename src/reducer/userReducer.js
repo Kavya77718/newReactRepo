@@ -8,9 +8,10 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case actionTypes.USER_LOGIN:
+
    // case actionTypes.USER_REGISTER:
     console.log("payload",payload)
-    localStorage.setItem('emailIdId',payload.emailIdId)
+    localStorage.setItem('emailId',payload.emailId)
     localStorage.setItem('userId',payload.customerId)
     return { ...state, user: payload, loggedIn: true, isAdmin: payload.emailId.match("admin@admin.com")
     ? true
@@ -45,5 +46,6 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
   default:
     return state;
 }
+
 };
 export default userReducer;

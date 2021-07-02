@@ -17,13 +17,9 @@ class AdminHome extends React.Component {
                    Customer
               </Link>
             </li>
+            
             <li>
-              <Link to="/Address">
-                  Address
-              </Link>
-            </li>
-            <li>
-              <Link to="/Feedback">
+              <Link to="/Feedback1">
                    Feedback
               </Link>
             </li>

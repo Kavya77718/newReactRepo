@@ -38,50 +38,61 @@ function Navbar({ logoutUser }) {
               <div className="col-lg-3 col-sm-4 col-md-4 col-5">
                 {" "}
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <a href="/" className="brand-wrap headANDlogo" data-abc="true">
+                  <NavLink to="/" className="brand-wrap headANDlogo" data-abc="true">
                     <div classNameName="slogan" style={{"marginRight":"50px"}}>
                       <span className="logo medtitle" style={{ "fontFamily": "-moz-initial" }}>Veggies</span>{" "}
                     </div>
 
-                  </a>{" "}
+                  </NavLink>{" "}
                 </Link>
               </div>
               <div className="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
             
               <Link to="/" style={{ textDecoration: "none" }}>
-                  <a href="" className="brand-wrap headANDlogo" data-abc="true">
+                  <NavLink to="" className="brand-wrap headANDlogo" data-abc="true">
                     <div classNameName="slogan" style={{"marginRight":"555px"}}>
                     <span className="login">
                         &nbsp;
                         <House />&nbsp;
-                        <h4 style={{ 'color': 'white' }}>Home</h4>
+                        <h4 style={{ 'color': '#393e46' }}>Home</h4>
                       </span>
                       {/* <span className="logo medtitle" style={{"fontSize":"14" }} >
                      
   Home</span>{" "}*/}
                     </div> 
 
-                  </a>{" "}
+                  </NavLink>{" "}
                 </Link>
               </div>
 
               <div className="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                 <div className="d-flex justify-content-end">
-                  <button className="btt">
+                <Link
+                      style={{ display: userIsLoggedIn ? "block" : "none"}}
+                      className="nav-link cartLog"
+                      to="/veglisting"
+                    >
+                      <span className="login">
+                        &nbsp;
+                       
+                        <h4 style={{ 'color': '#393e46' }}>Products</h4>
+                      </span>
+                    </Link>
+                  {/* <button className="btt">
                     {" "}
-                    <div className="blink_me" style={{ 'color': 'white' }}><h4>PRODUCTS</h4></div>
-                  </button>
+                    <div className="blink_me" style={{ 'color': '#393e46' }}><h4>PRODUCTS</h4></div> 
+                  </button>*/}
                   
                   <div style={{ display: "flex" }}>
                   <Link
                       style={{ display: userIsLoggedIn ? "block" : "none"}}
                       className="nav-link cartLog"
-                      to="/profile"
+                      to="/feedback"
                     >
                       <span className="login">
                         &nbsp;
                        
-                        <h4 style={{ 'color': 'white' }}>Profile</h4>
+                        <h4 style={{ 'color': '#393e46' }}>Feedback</h4>
                       </span>
                     </Link>
                     <Link
@@ -92,7 +103,7 @@ function Navbar({ logoutUser }) {
                       <span className="login">
                         &nbsp;
                         <Person />&nbsp;
-                        <h4 style={{ 'color': 'white' }}>Login</h4>
+                        <h4 style={{ 'color': '#393e46' }}>Login</h4>
                       </span>
                     </Link>
                     <Link
@@ -103,14 +114,14 @@ function Navbar({ logoutUser }) {
                       <span className="login">
                         &nbsp;
                         <PencilSquare />&nbsp;
-                        <h4 style={{ 'color': 'white' }}>Register</h4>
+                        <h4 style={{ 'color': '#393e46' }}>Register</h4>
                       </span>
                     </Link>
                     <Link
                       style={{ display: userIsLoggedIn ? "none" : "block" }}
                       className="text"
                     >
-                      <h4>{user && user.FirstName}</h4>
+                      <h4>{user && user.name}</h4>
                     </Link>
                     <Link
                       onClick={handleSubmit}
@@ -118,13 +129,13 @@ function Navbar({ logoutUser }) {
                       className="nav-link cartlog"
                       to="/"
                     ><span className="logout">
-                        <h4 style={{ 'color': 'white' }}>Logout</h4>
+                        <h4 style={{ 'color': '#393e46' }}>Logout</h4>
                       </span>
                     </Link>
-                    <Link to="/" style={{ textDecoration: "none" }}>
-                    <a
+                    <Link to="/cart" style={{ textDecoration: "none" }}>
+                    <NavLink
                       className="nav-link nav-user-img cartLog"
-                      href="#"
+                      to="/cart"
                       data-toggle="modal"
                       data-target="#login-modal"
                       data-abc="true"
@@ -132,9 +143,9 @@ function Navbar({ logoutUser }) {
                       <span className="login">
                         &nbsp;
                         <Cart /> &nbsp;
-                        <h4 style={{ 'color': 'white' }}>Cart</h4>
+                        <h4 style={{ 'color': '#393e46' }}>Cart</h4>
                       </span>
-                    </a>
+                    </NavLink>
                   </Link>
                   </div>
 
